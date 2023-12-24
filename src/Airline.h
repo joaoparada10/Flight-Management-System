@@ -5,17 +5,21 @@
 #ifndef AEDPROJECT2_AIRLINE_H
 #define AEDPROJECT2_AIRLINE_H
 
+#include <string>
 
 class Airline {
 private:
-    string code;
-    string name;
-    string callsign;
-    string country;
+    std::string code;
+    std::string name;
+    std::string callsign;
+    std::string country;
 
 public:
-    Airline(string code, string name, string callsign, string country)
-
+    Airline(std::string code, std::string name, std::string callsign, std::string country)
+    std::string getCode();
+    std::string geName();
+    std::string getCallsign();
+    std::string getCountry();
 };
 
 

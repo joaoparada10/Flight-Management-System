@@ -1,2 +1,2 @@
-C:/Users/jonas/Desktop/C++/AEDProject2/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/jonas/Desktop/C++/AEDProject2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Asus/CLionProjects/AEDproj2/AEDProject2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Asus/CLionProjects/AEDproj2/AEDProject2/cmake-build-debug/CMakeFiles/rebuild_cache.dir

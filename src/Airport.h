@@ -22,7 +22,7 @@ public:
     std::string getCode();
     std::string getName();
     std::string getCity();
-    std::string geTCountry();
+    std::string getCountry();
     double getLatitude();
     double getLongitude();
     double calculateDistance(const Airport& otherAirport);

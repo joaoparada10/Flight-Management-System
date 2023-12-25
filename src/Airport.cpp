@@ -4,6 +4,7 @@
 
 #include "Airport.h"
 #include <string>
+#include <complex>
 
 Airport::Airport(std::string code, std::string name, std::string city, std::string country, double latitude, double longitude)
 {
@@ -37,7 +38,7 @@ std::string Airport::getCountry()
 
 double Airport::getLatitude()
 {
-    return this->latitude
+    return this->latitude;
 }
 
 double Airport::getLongitude()
@@ -45,17 +46,20 @@ double Airport::getLongitude()
     return this->longitude;
 }
 
+double toRadians(double degree) // funçao auxiliar para a funçao de cima
+{
+    return degree * (M_PI / 180.0);
+}
+
 double Airport::calculateDistance(const Airport& otherAirport)
 {
     constexpr double earthRadius = 6371.0;
 
-    // Convert latitude and longitude from degrees to radians
     double lat1 = toRadians(latitude);
     double lon1 = toRadians(longitude);
     double lat2 = toRadians(otherAirport.latitude);
     double lon2 = toRadians(otherAirport.longitude);
 
-    // Haversine formula
     double dlat = lat2 - lat1;
     double dlon = lon2 - lon1;
 
@@ -71,7 +75,3 @@ double Airport::calculateDistance(const Airport& otherAirport)
     return distance;
 }
 
-double toRadians(double degree) // funçao auxiliar para a funçao de cima
-{
-    return degree * (M_PI / 180.0);
-}

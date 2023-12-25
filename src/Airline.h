@@ -15,9 +15,9 @@ private:
     std::string country;
 
 public:
-    Airline(std::string code, std::string name, std::string callsign, std::string country)
+    Airline(std::string code, std::string name, std::string callsign, std::string country);
     std::string getCode();
-    std::string geName();
+    std::string getName();
     std::string getCallsign();
     std::string getCountry();
 };

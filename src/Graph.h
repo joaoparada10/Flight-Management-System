@@ -64,7 +64,7 @@ class Graph {
 public:
     Vertex<T> *findVertex(const T &in) const;
     int getNumVertex() const;
-	bool addVertex(const T &in);
+	bool addVertex(T &in);
 	bool removeVertex(const T &in);
 	bool addEdge(const T &sourc, const T &dest, double w);
 	bool removeEdge(const T &sourc, const T &dest);
@@ -178,7 +178,7 @@ void Vertex<T>::setAdj(const vector<Edge<T>> &adj) {
  *  Returns true if successful, and false if a vertex with that content already exists.
  */
 template <class T>
-bool Graph<T>::addVertex(const T &in) {
+bool Graph<T>::addVertex(T &in) {
 	if ( findVertex(in) != NULL)
 		return false;
 	vertexSet.push_back(new Vertex<T>(in));

@@ -4,17 +4,18 @@
 
 #ifndef AEDPROJECT2_FLIGHT_H
 #define AEDPROJECT2_FLIGHT_H
-
+#include <string>
 
 class Flight {
 private:
-    string source;
-    string target;
-    string airLine;
+    std::string source;
+    std::string target;
+    std::string airLine;
 public:
-    string getSource();
-    string getTarget();
-    string getAirline();
+    Flight(std::string Source, std::string Target , std::string Airline);
+    std::string getSource();
+    std::string getTarget();
+    std::string getAirline();
 };
 
 

@@ -4,7 +4,7 @@
 
 #include "Airline.h"
 
-Airline::Airline(int code, int name, int callsign, int country)
+Airline::Airline(std::string code, std::string name, std::string callsign, std::string country)
 {
     this->code = code;
     this->name = name;
@@ -17,7 +17,7 @@ std::string Airline::getCode()
     return this->code;
 }
 
-std::string Airline::geName()
+std::string Airline::getName()
 {
     return this->name;
 }

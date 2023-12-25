@@ -11,7 +11,10 @@ private:
     string source;
     string target;
     string airLine;
-
+public:
+    string getSource();
+    string getTarget();
+    string getAirline();
 };
 
 

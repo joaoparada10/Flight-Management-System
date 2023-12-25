@@ -75,3 +75,7 @@ double Airport::calculateDistance(const Airport& otherAirport)
     return distance;
 }
 
+// Inside the Airport class definition
+bool Airport::operator==(const Airport& other) const {
+    return this->code == other.code;
+}

@@ -10,10 +10,10 @@ using namespace std;
 
 class Airport {
 private:
-    string code;
-    string name;
-    string city;
-    string country;
+    std::string code;
+    std::string name;
+    std::string city;
+    std::string country;
     double latitude;
     double longitude;
 
@@ -26,6 +26,7 @@ public:
     double getLatitude();
     double getLongitude();
     double calculateDistance(const Airport& otherAirport);
+    bool operator==(const Airport& other) const;
 };
 
 

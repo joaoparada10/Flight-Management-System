@@ -19,10 +19,12 @@ private:
 public:
     void addAirline(Airline& airline);
     void removeAirline(Airline& airline);
-    void addAirport(const Airport& airport);
+    void addAirport(Airport& airport);
     void removeAirport(const Airport& airport);
-    void addFlight(const Flight& flight);
-    void removeFlight(const Flight& flight);
+    void addFlight(Flight& flight);
+    void removeFlight( Flight& flight);
+    Airport findAirport(std::string code);
+    Airline getAirline(std::string code);
 };
 
 

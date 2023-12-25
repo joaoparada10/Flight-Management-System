@@ -7,6 +7,8 @@
 #include <cstddef>
 #include <vector>
 #include <queue>
+#include "Airline.h"
+#include <string>
 
 using namespace std;
 
@@ -25,7 +27,7 @@ class Vertex {
     bool processing;       // auxiliary field
     int distance;
 
-    void addEdge(Vertex<T> *dest, double w);
+    void addEdge(Vertex<T> *dest, std::string w);
 	bool removeEdgeTo(Vertex<T> *d);
 public:
 	Vertex(T in);
@@ -45,12 +47,12 @@ public:
 template <class T>
 class Edge {
 	Vertex<T> * dest;      // destination vertex
-	double weight;         // edge weight
+    std::string weight;// edge information ( this case Airline information)
 public:
-	Edge(Vertex<T> *d, double w);
+	Edge(Vertex<T> *d, std::string w);
     Vertex<T> *getDest() const;
     void setDest(Vertex<T> *dest);
-    double getWeight() const;
+    std::string getWeight() const;
     void setWeight(double weight);
     friend class Graph<T>;
 	friend class Vertex<T>;
@@ -66,7 +68,7 @@ public:
     int getNumVertex() const;
 	bool addVertex(T &in);
 	bool removeVertex(const T &in);
-	bool addEdge(const T &sourc, const T &dest, double w);
+	bool addEdge(const T &sourc, const T &dest, std::string w);
 	bool removeEdge(const T &sourc, const T &dest);
     vector<Vertex<T> * > getVertexSet() const;
 	vector<T> dfs() const;
@@ -80,7 +82,7 @@ template <class T>
 Vertex<T>::Vertex(T in): info(in) {}
 
 template <class T>
-Edge<T>::Edge(Vertex<T> *d, double w): dest(d), weight(w) {}
+Edge<T>::Edge(Vertex<T> *d, std::string w): dest(d), weight(w) {}
 
 
 template <class T>
@@ -132,7 +134,7 @@ void Edge<T>::setDest(Vertex<T> *d) {
 }
 
 template<class T>
-double Edge<T>::getWeight() const {
+std::string Edge<T>::getWeight() const {
     return weight;
 }
 
@@ -192,21 +194,22 @@ bool Graph<T>::addVertex(T &in) {
  * Returns true if successful, and false if the source or destination vertex does not exist.
  */
 template <class T>
-bool Graph<T>::addEdge(const T &sourc, const T &dest, double w) {
-	auto v1 = findVertex(sourc);
-	auto v2 = findVertex(dest);
-	if (v1 == NULL || v2 == NULL)
-		return false;
-	v1->addEdge(v2,w);
-	return true;
+bool Graph<T>::addEdge(const T &sourc, const T &dest, std::string w) {
+    auto v1 = findVertex(sourc);
+    auto v2 = findVertex(dest);
+    if (v1 == NULL || v2 == NULL)
+        return false;
+    v1->addEdge(v2, w);
+    return true;
 }
+
 
 /*
  * Auxiliary function to add an outgoing edge to a vertex (this),
  * with a given destination vertex (d) and edge weight (w).
  */
 template <class T>
-void Vertex<T>::addEdge(Vertex<T> *d, double w) {
+void Vertex<T>::addEdge(Vertex<T> *d, std::string w) {
 	adj.push_back(Edge<T>(d, w));
 }
 

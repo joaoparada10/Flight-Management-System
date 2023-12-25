@@ -24,10 +24,45 @@ void FMSGraph::removeAirline(Airline& airline)
     }
 }
 
-void FMSGraph::addAirport(const Airport& airport)
+void FMSGraph::addAirport(Airport& airport)
 {
     addVertex(airport);
 }
-void removeAirport(const Airport& airport);
-void addFlight(const Flight& flight);
-void removeFlight(const Flight& flight);
+void FMSGraph::removeAirport(const Airport& airport)
+{
+    removeVertex(airport);
+}
+
+
+
+void FMSGraph::addFlight(Flight& flight)
+{
+    addEdge(flight.getSource(),flight.getTarget(),flight.getAirline().getCode());
+}
+
+
+void FMSGraph::removeFlight(Flight& flight)
+{
+    removeEdge(flight.getSource(),flight.getTarget());
+}
+
+Airport FMSGraph::findAirport(std::string code)
+{
+    vector<Vertex<Airport> * > airports = getVertexSet();
+
+    for (auto v : airports)
+    {
+        if (v->getInfo().getCode() == code)
+        {
+            return v->getInfo();
+        }
+    }
+}
+
+Airline FMSGraph::getAirline(std::string code)
+{
+    auto it = airlinesMap.find(code);
+    if (it != airlinesMap.end()) {
+        return it->second;
+    }
+}

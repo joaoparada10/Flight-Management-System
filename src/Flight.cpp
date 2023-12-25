@@ -5,19 +5,21 @@
 #include "Flight.h"
 #include <string>
 
-Flight::Flight(std::string Source, std::string Target , std::string Airline)
-{
-    this->source = Source;
-    this->target = Target;
-    this->airLine = Airline;
-}
+Flight::Flight(Airport Source, Airport Target, Airline airline)
+        : source(Source), target(Target), airLine(airline) {}
 
-std::string Flight::getAirline() {
+
+Airline Flight::getAirline()
+{
     return this->airLine;
 }
-std::string Flight::getSource() {
+
+Airport Flight::getSource()
+{
     return this->source;
 }
-std::string Flight::getTarget() {
+
+Airport Flight::getTarget()
+{
     return this->target;
 }

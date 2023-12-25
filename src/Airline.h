@@ -20,6 +20,7 @@ public:
     std::string getName();
     std::string getCallsign();
     std::string getCountry();
+    bool operator==(const Airline& other) const;
 };
 
 

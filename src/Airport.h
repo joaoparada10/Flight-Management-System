@@ -5,6 +5,8 @@
 #ifndef AEDPROJECT2_AIRPORT_H
 #define AEDPROJECT2_AIRPORT_H
 #include <string>
+#include <set>
+#include "Airline.h"
 
 using namespace std;
 

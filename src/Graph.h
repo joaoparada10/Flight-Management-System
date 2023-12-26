@@ -47,13 +47,13 @@ public:
 template <class T>
 class Edge {
 	Vertex<T> * dest;      // destination vertex
-    std::string weight;// edge information ( this case Airline information)
+    std::string weight;// edge information ( this case flight distance)
 public:
 	Edge(Vertex<T> *d, std::string w);
     Vertex<T> *getDest() const;
     void setDest(Vertex<T> *dest);
     std::string getWeight() const;
-    void setWeight(double weight);
+    void setWeight(std::string weight);
     friend class Graph<T>;
 	friend class Vertex<T>;
 };
@@ -139,7 +139,7 @@ std::string Edge<T>::getWeight() const {
 }
 
 template<class T>
-void Edge<T>::setWeight(double weight) {
+void Edge<T>::setWeight(std::string weight) {
     Edge::weight = weight;
 }
 

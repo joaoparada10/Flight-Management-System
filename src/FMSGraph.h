@@ -10,6 +10,7 @@
 #include "Airline.h"
 #include "Flight.h"
 #include <unordered_map>
+#include <set>
 
 class FMSGraph : public Graph<Airport> { // entao este aqui e so uma adaptaçao do graph com nomes chiques
 
@@ -25,6 +26,8 @@ public:
     void removeFlight( Flight& flight);
     Airport findAirport(std::string code);
     Airline getAirline(std::string code);
+    void airportFlightCount();
+    void flightsPerAirport(std::string code);
 };
 
 

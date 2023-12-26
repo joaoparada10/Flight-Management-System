@@ -2,16 +2,14 @@
 // Created by jonas on 17/12/2023.
 //
 
+#include <iostream>
 #include "FMSGraph.h"
 
 void FMSGraph::addAirline(Airline& airline)
 {
-    auto it = airlinesMap.find(airline.getCode());
+    std::string code = airline.getCode();
+    this->airlinesMap.insert(std::make_pair(code,airline));
 
-    if( it == airlinesMap.end())
-    {
-        airlinesMap.insert(std::make_pair(airline.getCode(), airline)); // nao sei porque e que criar isto da maneira convencional nao estava a funcionar
-    }
 }
 
 void FMSGraph::removeAirline(Airline& airline)
@@ -66,3 +64,28 @@ Airline FMSGraph::getAirline(std::string code)
         return it->second;
     }
 }
+
+void FMSGraph::airportFlightCount() {
+    int airportCount = 0;
+    int flightCount = 0;
+    for (auto v : getVertexSet()){
+        airportCount++;
+        flightCount += v->getAdj().size();
+    }
+    std::cout << "Global number of airports: " << airportCount << std::endl;
+    std::cout << "Global number of flights: " << flightCount << std::endl;
+}
+
+void FMSGraph::flightsPerAirport(std::string code) {
+    Airport airport = findAirport(code);
+    set<Airline> airlines;
+    auto v = findVertex(airport);
+    int flightCount = v->getAdj().size();
+    for (auto e : v->getAdj()){
+        airlines.insert(getAirline(e.getWeight()));
+    }
+    int airLineCount = airlines.size();
+    std::cout << airport.getName() << " has " << flightCount << " outgoing flights from " << airLineCount
+    << " different airlines." << std::endl;
+}
+

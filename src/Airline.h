@@ -21,6 +21,7 @@ public:
     std::string getCallsign();
     std::string getCountry();
     bool operator==(const Airline& other) const;
+    bool operator<(const Airline& other) const;
 };
 
 

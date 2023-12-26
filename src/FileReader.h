@@ -17,9 +17,9 @@
 class FileReader
 {
 public:
-    void airlineMap(const std::string &filename, FMSGraph &OurGraph);
-    void addAirports(const std::string &filename, FMSGraph &OurGraph);
-    void addFlights(const std::string &filename, FMSGraph &OurGraph);
+    static void airlineMap(const std::string &filename, FMSGraph &OurGraph);
+    static void addAirports(const std::string &filename, FMSGraph &OurGraph);
+    static void addFlights(const std::string &filename, FMSGraph &OurGraph);
 };
 
 #endif //AEDPROJ2_FILEREADER_H

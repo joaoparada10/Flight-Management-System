@@ -2,6 +2,11 @@
 // Created by jonas on 17/12/2023.
 //
 
+/**
+ * @file FMSGraph.cpp
+ * @brief Implementation of the FMSGraph class methods
+ */
+
 #include <iostream>
 #include <algorithm>
 #include <cctype>
@@ -100,6 +105,14 @@ vector<Vertex<Airport> * > FMSGraph::getAirports() const
 
 void FMSGraph::flightsPerCity(std::string city)
 {
+    /**
+     * @return Returns the number of diferent departures occur in a city ( it can have different airports)
+     *
+     * @param city the name of the city we want to know how many fights has
+     *
+     * @complexity o(n)
+     */
+
     std::string city2 = city;
     std::transform(city2.begin(), city2.end(), city2.begin(), ::tolower);
     city2[0] = std::toupper(city2[0]);
@@ -120,6 +133,14 @@ void FMSGraph::flightsPerCity(std::string city)
 
 void FMSGraph::flighsPerAirline(std::string airline)
 {
+    /**
+     * @return Returns the number of flights that each airline can do
+     *
+     * @param airline the code of the airline that we want to know how many fights does
+     *
+     * @complexity o(n * m)
+     */
+
     int numOfFlights = 0;
 
     for( auto airports : getAirports())
@@ -138,6 +159,14 @@ void FMSGraph::flighsPerAirline(std::string airline)
 
 void FMSGraph::numOfDestinationsCity(std::string city)
 {
+    /**
+     * @return Returns the number of diferent countries that a city has connections to
+     *
+     * @param city the name of the departure city
+     *
+     * @complexity o(n * (m + k))
+     */
+
     std::string city2 = city;
     std::transform(city2.begin(), city2.end(), city2.begin(), ::tolower);
     city2[0] = std::toupper(city2[0]);
@@ -169,6 +198,13 @@ void FMSGraph::numOfDestinationsCity(std::string city)
 
 void FMSGraph::numOfDestinationsAirport(std::string code)
 {
+    /**
+     * @return Returns the number of diferent countries that an airport has connections to
+     *
+     * @param code The unique code of each airport
+     *
+     * @complexity o(n * (m + k))
+     */
     std::string code2 = code;
     std::transform(code2.begin(), code2.end(), code2.begin(), ::toupper);
 

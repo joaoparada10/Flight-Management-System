@@ -28,7 +28,14 @@ public:
     Airline getAirline(std::string code);
     void airportFlightCount();
     void flightsPerAirport(std::string code);
+    vector<Vertex<Airport> * > getAirports() const;
+    void flightsPerCity(std::string city);
+    void flighsPerAirline(std::string airline);
+    void numOfDestinationsCity(std::string city);
+    void numOfDestinationsAirport(std::string code);
+
 };
 
 
 #endif //AEDPROJECT2_FMSGRAPH_H
+

@@ -16,5 +16,9 @@ int main(){
     << testAirline.getCountry() << std::endl;
     testGraph.airportFlightCount();
     testGraph.flightsPerAirport("OPO");
+    testGraph.flightsPerCity("lisbon");
+    testGraph.flighsPerAirline("IBE");
+    testGraph.numOfDestinationsCity("lisbo");
+    testGraph.numOfDestinationsAirport("orp");
     return 0;
 }

@@ -19,6 +19,7 @@ public:
     Airport getSource();
     Airport getTarget();
     Airline getAirline();
+
 };
 
 

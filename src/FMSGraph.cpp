@@ -495,6 +495,77 @@ int FMSGraph::connectedComponents() {
     return counter;
 }
 
+
+int FMSGraph::lowestNumberOfStops(Vertex<Airport>* source, Vertex<Airport>* destination) {
+    queue<Vertex<Airport>*> q;
+    Airport destinationAirport = destination->getInfo();
+    q.push(source);
+
+    for (auto v : getVertexSet()){
+        v->setVisited(false);
+        v->setDistance(0);
+    }
+    source->setVisited(true);
+    while(!q.empty()){
+        auto u = q.front();
+        q.pop();
+        for(auto e : u->getAdj()){
+            auto w = e.getDest();
+            if (!w->isVisited()){
+                q.push(w);
+                w->setVisited(true);
+                w->setDistance(u->getDistance()+1);
+                if (w->getInfo() == destination->getInfo()) return w->getDistance();
+            }
+        }
+    }
+    return -1;
+}
+
+std::vector<std::vector<Vertex<Airport>*>> FMSGraph::findAllShortestPathsBetweenAirports(Vertex<Airport>* source, Vertex<Airport>* destination) {
+    int d = lowestNumberOfStops(source, destination);
+    std::vector<std::vector<Vertex<Airport>*>> allPaths;
+    std::queue<std::vector<Vertex<Airport>*>> q;
+
+    for (auto v : getVertexSet()) {
+        for (auto e : v->getAdj()) {
+            e.setVisited(false);
+        }
+    }
+
+    std::vector<Vertex<Airport>*> initialPath = {source};
+    q.push(initialPath);
+
+    while (!q.empty()) {
+        std::vector<Vertex<Airport>*> currentPath = q.front();
+        q.pop();
+
+        Vertex<Airport>* u = currentPath.back();
+
+        for (auto e : u->getAdj()) {
+            Vertex<Airport>* w = e.getDest();
+
+            if (!e.isVisited()) {
+                std::vector<Vertex<Airport>*> newPath = currentPath;
+                newPath.push_back(w);
+
+                if (w == destination && newPath.size() == d + 1) {
+                    // Found a valid path
+                    allPaths.push_back(newPath);
+                } else if (newPath.size() < d + 1) {
+                    // Continue exploring the path
+                    e.setVisited(true);
+                    q.push(newPath);
+                }
+            }
+        }
+    }
+
+    return allPaths;
+}
+
+
+
 void FMSGraph::bestFlightOption()
 {
 
@@ -506,7 +577,7 @@ void FMSGraph::bestFlightOption()
                                               "Airport (code/name) - 2 " << std::endl <<
                                               "Coordinates - 3 " << std::endl;
 
-    std::cout << "Opction selected: ";
+    std::cout << "Option selected: ";
     std::cin >> choice; // fazer switch case
 
 }
@@ -544,13 +615,6 @@ void FMSGraph::cityOption()
 
         Airport chosenAirport = cityAir[count - 1];
     }
-
-
-
-
-
-
-
 
 
 }

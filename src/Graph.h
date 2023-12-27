@@ -30,6 +30,7 @@ class Vertex {
     int indegree;          // auxiliary field
     int num;               // auxiliary field
     int low;               // auxiliary field
+    int distance;
 
     void addEdge(Vertex<T> *dest, string w);
     bool removeEdgeTo(Vertex<T> *d);
@@ -56,22 +57,31 @@ public:
 
     void setLow(int low);
 
+    int getDistance() const;
+
+    void setDistance(int d);
+
     friend class Graph<T>;
 };
+
 
 template <class T>
 class Edge {
     Vertex<T> * dest;      // destination vertex
-    string weight;         // edge weight
+    string weight;
+    bool visited;
 public:
     Edge(Vertex<T> *d, string w);
     Vertex<T> *getDest() const;
     void setDest(Vertex<T> *dest);
     string getWeight() const;
     void setWeight(string weight);
+    bool isVisited() const;
+    void setVisited(bool v);
     friend class Graph<T>;
     friend class Vertex<T>;
 };
+
 
 template <class T>
 class Graph {
@@ -98,7 +108,6 @@ public:
     vector<T> topsort() const;
     void topsortDfs(Vertex<T> *v, vector<T>& res) const;
     bool isDAG() const;
-    std::vector<Vertex<T>*> shortestPathBFS(const T& start, const T& end);
 };
 
 /****************** Provided constructors and functions ********************/
@@ -166,6 +175,15 @@ template<class T>
 void Edge<T>::setWeight(string weight) {
     Edge::weight = weight;
 }
+template<class T>
+void Edge<T>::setVisited(bool v) {
+    visited = v;
+}
+
+template<class T>
+bool Edge<T>::isVisited() const {
+    return Edge::visited;
+}
 
 /*
  * Auxiliary function to find a vertex with a given content.
@@ -216,6 +234,16 @@ void Vertex<T>::setLow(int low) {
 template <class T>
 void Vertex<T>::setVisited(bool v) {
     Vertex::visited = v;
+}
+
+template<class T>
+int Vertex<T>::getDistance() const {
+    return distance;
+}
+
+template<class T>
+void Vertex<T>::setDistance(int d) {
+    Vertex::distance = d;
 }
 
 template<class T>
@@ -386,7 +414,6 @@ vector<T> Graph<T>::bfs(const T & source) const {
     for (auto v : vertexSet)
         v->visited = false;
 
-
     q.push(s);
     s->visited = true;
     while (!q.empty()) {
@@ -402,53 +429,6 @@ vector<T> Graph<T>::bfs(const T & source) const {
         }
     }
     return res;
-}
-
-template <class T>
-std::vector<Vertex<T>*> Graph<T>::shortestPathBFS(const T& source, const T& end) {
-
-    std::unordered_map<Vertex<T>*, Vertex<T>*> predecessor; // To store predecessors
-    std::vector<Vertex<T>*> path; // To store the final path
-
-    auto s = findVertex(source);
-    auto ende = findVertex(end);
-
-    if (s == nullptr || ende == nullptr)
-        return path; // Return an empty path if source or destination is not found
-
-    std::queue<Vertex<T>*> q;
-
-    for (auto v : vertexSet) {
-        v->visited = false;
-        predecessor[v] = nullptr; // Initialize predecessors
-    }
-
-    q.push(s);
-    s->visited = true;
-
-    while (!q.empty()) {
-        auto v = q.front();
-        q.pop();
-
-        for (auto& e : v->adj) {
-            auto w = e.dest;
-            if (!w->visited) {
-                q.push(w);
-                w->visited = true;
-                predecessor[w] = v; // Set predecessor
-            }
-        }
-    }
-
-    // Reconstruct the path
-    auto current = ende;
-    while (current != nullptr) {
-        path.insert(path.begin(), current);
-        current = predecessor[current];
-    }
-
-    return path;
-
 }
 
 

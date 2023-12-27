@@ -420,20 +420,33 @@ void FMSGraph::topAirports(int numOfAirports)           //viii.
                   <<  " with a total of " << vectorAirports[i].second << " total flights." << std::endl;
     }
 }
-void FMSGraph::articulationDfs(Vertex<Airport>* v, set<Airport> & articulationAirports, int index){
-    index++;
+void FMSGraph::articulationDfs(Vertex<Airport>* v, set<Airport> & articulationAirports,stack<Airport> &s,int index){
     v->setLow(index);
     v->setNum(index);
+    index++;
+    s.push(v->getInfo());
+    int children = 0;
     for (auto e : v->getAdj()){
         auto w = e.getDest();
         if (w->getNum() == 0){
-            articulationDfs(w,articulationAirports,index);
+            children++;
+            articulationDfs(w,articulationAirports,s,index);
             v->setLow(min(v->getLow(), w->getLow()));
-            if (w->getLow() >= v->getNum()){
+            if ((v->getNum() == 1 && children > 1) || (v->getNum() > 1 && w->getLow() >= v->getNum()))
                 articulationAirports.insert(v->getInfo());
             }
+
+        else {
+            stack<Airport> tempStack = s;
+            while (!tempStack.empty()) {
+                Airport tempVertexInfo = tempStack.top();
+                tempStack.pop();
+                if (w->getInfo() == tempVertexInfo) {
+                    v->setLow(min(v->getLow(), w->getNum()));
+                    break;
+                }
+            }
         }
-        else if ()
     }
 }
 
@@ -446,14 +459,16 @@ void FMSGraph::essentialAirports()
         v->setVisited(false);
         v->setNum(0);
         v->setLow(0);
-
     }
     for (auto v : getVertexSet()){
         if (v->getNum() == 0){
-            articulationDfs(v,articulationAirports, index);
+            articulationDfs(v,articulationAirports,s, index);
         }
     }
-
+    std::cout << "The essential " << articulationAirports.size() << " airports are the following: " << std::endl;
+    for (auto a : articulationAirports){
+        std::cout << a.getCode() << " " << a.getName() << std::endl;
+    }
 }
 
 void FMSGraph::connectedComponentsDfsVisit(Vertex<Airport>* v, set<std::string> & airportCount) {

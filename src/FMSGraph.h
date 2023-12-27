@@ -29,6 +29,7 @@ public:
     void airportFlightCount();      //i.
     void flightsPerAirport(std::string code);       //ii.
     vector<Vertex<Airport> * > getAirports() const;
+    Airport getAirport(std::string code);
     void flightsPerCity(std::string city);          //iii.
     void flighsPerAirline(std::string airline);     //iii.
     void airportDestinations(std::string code);     //v.
@@ -40,7 +41,9 @@ public:
     void essentialAirports();
     int connectedComponents();
     void connectedComponentsDfsVisit(Vertex<Airport>* v, set<std::string> & airportCount);
-
+    void bestFlightOption();
+    vector<Airport> cityAirports(std::string city);
+    void cityOption();
 };
 
 

@@ -11,7 +11,10 @@
 #include <algorithm>
 #include <cctype>
 #include <vector>
+#include <sstream>
 #include "FMSGraph.h"
+
+
 
 
 void FMSGraph::addAirline(Airline& airline)
@@ -110,6 +113,39 @@ vector<Vertex<Airport> * > FMSGraph::getAirports() const
     return getVertexSet();
 }
 
+Airport FMSGraph::getAirport(std::string code)
+{
+    for(auto airport : getAirports())
+    {
+        if(airport->getInfo().getCode() == code)
+            return airport->getInfo();
+    }
+}
+
+std::string cityTransformer(std::string city)
+{
+    std::string city2 = city;
+    std::transform(city2.begin(), city2.end(), city2.begin(), ::tolower);
+
+    std::istringstream iss(city2);
+    std::string word;
+    std::ostringstream result;
+
+    while (iss >> word) {
+        word[0] = std::toupper(word[0]);
+        result << word;
+
+        if (!(iss >> word)) {
+            break;
+        }
+
+        result << ' ';
+    }
+
+    return result.str();
+}
+
+
 void FMSGraph::flightsPerCity(std::string city)             //iii.
 {
     /**
@@ -120,9 +156,7 @@ void FMSGraph::flightsPerCity(std::string city)             //iii.
      * @complexity o(n)
      */
 
-    std::string city2 = city;
-    std::transform(city2.begin(), city2.end(), city2.begin(), ::tolower);
-    city2[0] = std::toupper(city2[0]);
+    std::string city2 = cityTransformer(city);
 
     int numOfFlights = 0;
 
@@ -174,9 +208,7 @@ void FMSGraph::numOfDestinationsCity(std::string city)            //iv.
      * @complexity o(n * (m + k))
      */
 
-    std::string city2 = city;
-    std::transform(city2.begin(), city2.end(), city2.begin(), ::tolower);
-    city2[0] = std::toupper(city2[0]);
+    std::string city2 = cityTransformer(city);
 
     vector<std::string> difCountries;
 
@@ -423,4 +455,78 @@ int FMSGraph::connectedComponents() {
     return counter;
 }
 
+void FMSGraph::bestFlightOption()
+{
+
+    std::cout << "Where from do you want to depart?" << std::endl << std::endl;
+
+    int choice;
+
+    std::cout << "Search by:" << std::endl << "City - 1" << std::endl <<
+                                              "Airport (code/name) - 2 " << std::endl <<
+                                              "Coordinates - 3 " << std::endl;
+
+    std::cout << "Opction selected: ";
+    std::cin >> choice; // fazer switch case
+
+}
+
+void FMSGraph::cityOption()
+{
+    std::string city;
+    int choice;
+    vector<Airport> cityAir;
+    int count = 1;
+
+
+    std::cout << "What city will you be departing from?" << std::endl;
+    std::cin >> city;
+
+    std::string city2 = cityTransformer(city);
+    cityAir = cityAirports(city2);
+
+    if(cityAir.size() == 0)
+    {
+        std::cout << "City was not found or does not have any airports. " << std::endl;
+    }
+    else
+    {
+        std::cout << "What airport do you wish to depart from? (enter airport number) ";
+
+        for(auto airport : cityAir)
+        {
+            std::cout << count << " - " << airport.getName() << " ( " << airport.getCode() << " )" << std::endl;
+            count++;
+        }
+
+        std::cout << "Option number: ";
+        std::cin >> choice;
+
+        Airport chosenAirport = cityAir[count - 1];
+    }
+
+
+
+
+
+
+
+
+
+}
+
+vector<Airport> FMSGraph::cityAirports(std::string city)
+{
+    vector<Airport> cityAir;
+
+    for(auto airport : getAirports())
+    {
+        if(airport->getInfo().getCity() == city)
+        {
+            cityAir.push_back(airport->getInfo());
+        }
+    }
+
+    return cityAir;
+}
 

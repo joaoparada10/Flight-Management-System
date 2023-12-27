@@ -20,5 +20,7 @@ int main(){
     testGraph.flighsPerAirline("IBE");
     testGraph.numOfDestinationsCity("lisbo");
     testGraph.numOfDestinationsAirport("orp");
+    testGraph.maxTrip();
+    testGraph.topAirports(9);
     return 0;
 }

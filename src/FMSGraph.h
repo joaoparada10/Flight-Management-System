@@ -33,6 +33,9 @@ public:
     void flighsPerAirline(std::string airline);
     void numOfDestinationsCity(std::string city);
     void numOfDestinationsAirport(std::string code);
+    void maxTrip();
+    void topAirports(int numOfAirports);
+    void essentialAirports();
 
 };
 

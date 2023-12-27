@@ -289,15 +289,15 @@ vector<T> Graph<T>::dfs() const {
  * Updates a parameter with the list of visited node contents.
  */
 // TODO
-template <class T>
-void Graph<T>::dfsVisit(Vertex<T> *v, vector<T> & res) const {
-    v->setVisited(true);
-    vector<Edge<T>> edges = v->getAdj();
-    res.push_back(v->getInfo());
-    for(auto ed : edges){
-        if(!ed.getDest()->isVisited()) dfsVisit(ed.getDest(), res);
+    template <class T>
+    void Graph<T>::dfsVisit(Vertex<T> *v, vector<T> & res) const {
+        v->setVisited(true);
+        vector<Edge<T>> edges = v->getAdj();
+        res.push_back(v->getInfo());
+        for(auto ed : edges){
+            if(!ed.getDest()->isVisited()) dfsVisit(ed.getDest(), res);
+        }
     }
-}
 
 //=============================================================================
 // Subexercise 1.1.2: Depth First Search (From a source node)

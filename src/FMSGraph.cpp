@@ -238,3 +238,101 @@ void FMSGraph::numOfDestinationsAirport(std::string code)
     }
 
 }
+
+void FMSGraph::maxTrip()
+{
+    /**
+     * @return Returns the pairs that have the most conections between them
+     *
+     * @complexity o(n * (v + e))
+     */
+
+    vector<vector<Airport>> maxtrips;
+    vector<Airport> maxTrip;
+
+    for (auto& airport : getAirports())
+    {
+        vector<Airport> trip = dfs(airport->getInfo());
+
+        if (trip.size() > maxTrip.size())
+        {
+            maxTrip = trip;
+            maxtrips.clear();
+            maxtrips.push_back(maxTrip);
+        }
+        else if (trip.size() == maxTrip.size())
+        {
+            maxtrips.push_back(trip);
+        }
+    }
+
+    if (!maxtrips.empty())
+    {
+        std::cout << "The maximum trips start at: " << std::endl << std::endl;
+
+        for (auto& trip : maxtrips)
+        {
+            std::cout << trip[0].getName() << " in " << trip[0].getCountry() << std::endl;
+            std::cout << trip[trip.size() - 1].getName() << " in " << trip[trip.size() - 1].getCountry() << std::endl;
+            std::cout << "-----" << std::endl;
+        }
+    }
+    else
+    {
+        std::cout << "No maximum trips found." << std::endl;
+    }
+}
+
+void FMSGraph::topAirports(int numOfAirports)
+{
+    /**
+     * @return Returns the top k airports with more traffic
+     *
+     * @param numOfAirports the top number of airpots we want to get
+     *
+     * @complexity O(v + e + v * log(v))
+     */
+
+    std::unordered_map<std::string, int> airportFlightsCount;
+
+    for (auto flight : getAirports()) // criar um unordered map de airports com contagem 0
+    {
+        airportFlightsCount.insert(std::make_pair(flight->getInfo().getCode(),0));
+    }
+
+    for(auto airport : getAirports())
+    {
+        for(auto flights : airport->getAdj())
+        {
+            airportFlightsCount[airport->getInfo().getCode()] = airportFlightsCount[airport->getInfo().getCode()] + 1;
+            airportFlightsCount[flights.getDest()->getInfo().getCode()] = airportFlightsCount[flights.getDest()->getInfo().getCode()] + 1;
+        }
+    }
+
+    std::vector<std::pair<std::string, int>> vectorAirports(airportFlightsCount.begin(), airportFlightsCount.end());
+    std::sort(vectorAirports.begin(), vectorAirports.end(),[](const auto& a, const auto& b)
+              {
+                  return a.second > b.second;
+              });
+
+    std::cout << "The top " << numOfAirports << " are:" << std::endl;
+
+    for(int i = 0; i < numOfAirports; i++)
+    {
+        std::cout << i + 1 << " - ";
+        std::cout << findAirport(vectorAirports[i].first).getName() << "(" << findAirport(vectorAirports[i].first).getCode()  << ")"
+                  << " in " << findAirport(vectorAirports[i].first).getCity() << ", " << findAirport(vectorAirports[i].first).getCountry()
+                  <<  " with a total of " << vectorAirports[i].second << " total flights." << std::endl;
+    }
+}
+
+void FMSGraph::essentialAirports()
+{
+    vector<Airport> essentialAirports;
+
+    for(auto& airport : getAirports())
+    {
+
+    }
+
+}

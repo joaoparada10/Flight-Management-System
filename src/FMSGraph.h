@@ -44,7 +44,9 @@ public:
     void connectedComponentsDfsVisit(Vertex<Airport>* v, set<std::string> & airportCount);
     void bestFlightOption();
     vector<Airport> cityAirports(std::string city);
-    void cityOption();
+    Vertex<Airport>* cityOption();
+    Vertex<Airport>* airportOption();
+    Vertex<Airport>* coordinatesOption();
 };
 
 

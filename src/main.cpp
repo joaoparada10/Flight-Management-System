@@ -20,5 +20,6 @@ int main(){
     testGraph.reachableDestinationsInXStops("OPO",7);   //vi.
     testGraph.maxTrip();                                        //vii
     testGraph.topAirports(9);                       //viii */
+    testGraph.essentialAirports();
     return 0;
 }

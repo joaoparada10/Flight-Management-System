@@ -39,8 +39,8 @@ public:
     void setProcessing(bool p);
     void setDistance(int d);
     int getDistance() const;
-    const vector<Edge<T>> &getAdj() const;
-    void setAdj(const vector<Edge<T>> &adj);
+    const vector<Edge<T> > &getAdj() const;
+    void setAdj(const vector<Edge<T> > &adj);
     friend class Graph<T>;
 };
 
@@ -165,12 +165,12 @@ void Vertex<T>::setVisited(bool v) {
 }
 
 template<class T>
-const vector<Edge<T>> &Vertex<T>::getAdj() const {
+const vector<Edge<T> > &Vertex<T>::getAdj() const {
     return adj;
 }
 
 template <class T>
-void Vertex<T>::setAdj(const vector<Edge<T>> &adj) {
+void Vertex<T>::setAdj(const vector<Edge<T> > &adj) {
     Vertex::adj = adj;
 }
 
@@ -292,7 +292,7 @@ vector<T> Graph<T>::dfs() const {
 template <class T>
 void Graph<T>::dfsVisit(Vertex<T> *v, vector<T> & res) const {
     v->setVisited(true);
-    vector<Edge<T>> edges = v->getAdj();
+    vector<Edge<T> > edges = v->getAdj();
     res.push_back(v->getInfo());
     for(auto ed : edges){
         if(!ed.getDest()->isVisited()) dfsVisit(ed.getDest(), res);

@@ -4,18 +4,14 @@
 
 #ifndef PROJETO2_MENU_H
 #define PROJETO2_MENU_H
-
+#include "FMSGraph.h"
 
 class Menu {
-private:
-    int menuState;
 public:
-    Menu();
+    void getMainMenu(FMSGraph graph);
     void getFlightMenu(FMSGraph graph);
     void getStatMenu(FMSGraph graph);
-    void getMainMenu(FMSGraph graph);
     void getExtrasMenu(FMSGraph graph);
-    void menuPush(int i);
 };
 
 

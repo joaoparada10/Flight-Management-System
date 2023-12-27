@@ -4,6 +4,7 @@ set(SOURCE_FILES
         FileReader.cpp
         Flight.cpp
         FMSGraph.cpp
+        Menu.cpp
         main.cpp)
 
 set(HEADER_FILES
@@ -12,6 +13,7 @@ set(HEADER_FILES
         FileReader.h
         Flight.h
         FMSGraph.h
+        Menu.h
         Graph.h)
 
 add_executable(AEDProject2 ${SOURCE_FILES} ${HEADER_FILES})

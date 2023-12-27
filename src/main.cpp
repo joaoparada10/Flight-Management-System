@@ -11,7 +11,7 @@ int main(){
     FileReader::addAirports("data/airports.csv", testGraph);
     FileReader::addFlights("data/flights.csv",testGraph);
     //testGraph.airportFlightCount();                                 //i.
-    testGraph.flightsPerAirport("OPO");                     //ii.
+    //testGraph.flightsPerAirport("OPO");                     //ii.
     /*testGraph.flightsPerCity("lisbon");                     //iii.
     testGraph.flighsPerAirline("IBE");                      //iii.
     testGraph.numOfDestinationsCity("HORTA");               //iv.
@@ -20,6 +20,13 @@ int main(){
     testGraph.reachableDestinationsInXStops("OPO",7);   //vi.
     testGraph.maxTrip();                                        //vii
     testGraph.topAirports(9);                       //viii */
-    testGraph.essentialAirports();
+    //testGraph.essentialAirports();
+    vector<vector<Vertex<Airport>*>> test = testGraph.findAllShortestPathsBetweenAirports(testGraph.findVertex(testGraph.findAirport("OPO")),testGraph.findVertex(testGraph.findAirport("LIS")));
+    for (auto path : test){
+        for (auto v : path){
+            std::cout << v->getInfo().getName() << " - ";
+        }
+        std::cout << std::endl;
+    }
     return 0;
 }

@@ -12,6 +12,7 @@
 #include <cctype>
 #include <vector>
 #include <sstream>
+#include <stack>
 #include "FMSGraph.h"
 
 
@@ -419,14 +420,38 @@ void FMSGraph::topAirports(int numOfAirports)           //viii.
                   <<  " with a total of " << vectorAirports[i].second << " total flights." << std::endl;
     }
 }
+void FMSGraph::articulationDfs(Vertex<Airport>* v, set<Airport> & articulationAirports, int index){
+    index++;
+    v->setLow(index);
+    v->setNum(index);
+    for (auto e : v->getAdj()){
+        auto w = e.getDest();
+        if (w->getNum() == 0){
+            articulationDfs(w,articulationAirports,index);
+            v->setLow(min(v->getLow(), w->getLow()));
+            if (w->getLow() >= v->getNum()){
+                articulationAirports.insert(v->getInfo());
+            }
+        }
+        else if ()
+    }
+}
 
 void FMSGraph::essentialAirports()
 {
-    vector<Airport> essentialAirports;
+    int index = 1;
+    stack<Airport> s;
+    set<Airport> articulationAirports;
+    for (auto v : getVertexSet()){
+        v->setVisited(false);
+        v->setNum(0);
+        v->setLow(0);
 
-    for(auto& airport : getAirports())
-    {
-
+    }
+    for (auto v : getVertexSet()){
+        if (v->getNum() == 0){
+            articulationDfs(v,articulationAirports, index);
+        }
     }
 
 }

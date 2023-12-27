@@ -46,7 +46,9 @@ public:
     set<vector<Vertex<Airport>*>> findAllShortestPathsBetweenAirports(Vertex<Airport>* source, Vertex<Airport>* destination);
     void bestFlightOption();
     vector<Airport> cityAirports(std::string city);
-    void cityOption();
+    Vertex<Airport>* cityOption();
+    Vertex<Airport>* airportOption();
+    Vertex<Airport>* coordinatesOption();
 };
 
 

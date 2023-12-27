@@ -13,6 +13,8 @@
 #include <vector>
 #include <sstream>
 #include <stack>
+#include <complex>
+#include <cfloat>
 #include "FMSGraph.h"
 
 
@@ -146,6 +148,59 @@ std::string cityTransformer(std::string city)
     return result.str();
 }
 
+
+
+double tooRadians(double degree) // funçao auxiliar para a funçao de cima
+{
+    return degree * (M_PI / 180.0);
+}
+
+double Distance(const double latitude,const double longitude, const double latitude2, const double longitude2 )
+{
+    constexpr double earthRadius = 6371.0;
+
+    double lat1 = tooRadians(latitude);
+    double lon1 = tooRadians(longitude);
+    double lat2 = tooRadians(latitude2);
+    double lon2 = tooRadians(longitude2);
+
+    double dlat = lat2 - lat1;
+    double dlon = lon2 - lon1;
+
+    double a = std::sin(dlat / 2) * std::sin(dlat / 2) +
+               std::cos(lat1) * std::cos(lat2) *
+               std::sin(dlon / 2) * std::sin(dlon / 2);
+
+    double c = 2 * std::atan2(std::sqrt(a), std::sqrt(1 - a));
+
+    // Distance in kilometers
+    double distance = earthRadius * c;
+
+    return distance;
+}
+
+double calculateFullDistance(vector<Vertex<Airport>*> trip)
+{
+    double dist = 0;
+
+    for (auto it = trip.begin(); it != std::prev(trip.end()); ++it) {
+
+        Vertex<Airport>* currentAirport = *it;
+        Vertex<Airport>* nextAirport = *(it + 1);
+
+        dist = dist + Distance(currentAirport->getInfo().getLatitude(),currentAirport->getInfo().getLongitude(),nextAirport->getInfo().getLatitude(),nextAirport->getInfo().getLongitude());
+    }
+    return dist;
+}
+
+bool compareTrips(const vector<Vertex<Airport>*>& trip1, const vector<Vertex<Airport>*>& trip2) {
+    return calculateFullDistance(trip1) < calculateFullDistance(trip2);
+}
+
+void sorttrips(std::vector<std::vector<Vertex<Airport>*>>& possibletrips)
+{
+    std::sort(possibletrips.begin(), possibletrips.end(), compareTrips);
+}
 
 void FMSGraph::flightsPerCity(std::string city)             //iii.
 {
@@ -568,21 +623,67 @@ set<vector<Vertex<Airport>*>> FMSGraph::findAllShortestPathsBetweenAirports(Vert
 
 void FMSGraph::bestFlightOption()
 {
-
-    std::cout << "Where from do you want to depart?" << std::endl << std::endl;
-
+    Vertex<Airport>* source;
+    Vertex<Airport>* destination;
+    std::vector<std::vector<Vertex<Airport>*>> possiblePaths;
     int choice;
+    int choice2;
+    int count = 1;
+
+    std::cout << "Where from do you want to depart?" << std::endl;
 
     std::cout << "Search by:" << std::endl << "City - 1" << std::endl <<
                                               "Airport (code/name) - 2 " << std::endl <<
                                               "Coordinates - 3 " << std::endl;
 
-    std::cout << "Option selected: ";
+    std::cout << "Option selected:";
     std::cin >> choice; // fazer switch case
 
+    if(choice == 1)
+        source = cityOption();
+
+    else if (choice == 2)
+        source = airportOption();
+
+    else if( choice == 3)
+        source = coordinatesOption();
+
+    std::cout << "Where to do you want to go?" << std::endl;
+
+    std::cout << "Search by:" << std::endl << "City - 1" << std::endl <<
+                 "Airport (code/name) - 2 " << std::endl <<
+                 "Coordinates - 3 " << std::endl;
+
+    std::cin >> choice2; // fazer switch case
+
+    if(choice2 == 1)
+        source = cityOption();
+
+    else if (choice2 == 2)
+        source = airportOption();
+
+    else if( choice2 == 3)
+        source = coordinatesOption();
+
+    possiblePaths = findAllShortestPathsBetweenAirports(source,destination);
+    sorttrips(possiblePaths);
+
+    std::cout << "Your possible path(s) to your destination is/are (ordered by total travel distance): " << std::endl;
+
+    for(auto path : possiblePaths)
+    {
+        std::cout << count << " - (total distance: " << calculateFullDistance(path) << ") ";
+
+        for(auto airport : path)
+        {
+            std::cout << airport->getInfo().getName() <<  "(" << airport->getInfo().getCode() << ") " << " -> ";
+        }
+
+        count++;
+    }
 }
 
-void FMSGraph::cityOption()
+Vertex<Airport>* FMSGraph::cityOption()
 {
     std::string city;
     int choice;
@@ -590,7 +691,7 @@ void FMSGraph::cityOption()
     int count = 1;
 
 
-    std::cout << "What city will you be departing from?" << std::endl;
+    std::cout << "What city will you be chosing?" << std::endl;
     std::cin >> city;
 
     std::string city2 = cityTransformer(city);
@@ -599,14 +700,15 @@ void FMSGraph::cityOption()
     if(cityAir.size() == 0)
     {
         std::cout << "City was not found or does not have any airports. " << std::endl;
+        return nullptr;
     }
     else
     {
-        std::cout << "What airport do you wish to depart from? (enter airport number) ";
+        std::cout << "What airport do you want to chose? (enter airport number) " << std::endl;
 
         for(auto airport : cityAir)
         {
-            std::cout << count << " - " << airport.getName() << " ( " << airport.getCode() << " )" << std::endl;
+            std::cout << count << " - " << airport.getName() << " (" << airport.getCode() << ")" << std::endl;
             count++;
         }
 
@@ -614,9 +716,110 @@ void FMSGraph::cityOption()
         std::cin >> choice;
 
         Airport chosenAirport = cityAir[count - 1];
+
+        return findVertex(chosenAirport); // returns  the airport u want
+    }
+}
+
+Vertex<Airport>* FMSGraph::airportOption()
+{
+    std::string airportname;
+    std::string airportname2 = airportname;
+    vector<Airport> Air;
+
+    std::cout << "What airport will you be chosing?" << std::endl;
+    std::cin >> airportname;
+
+    if(airportname.size() == 3)
+    {
+        std::transform(airportname2.begin(), airportname2.end(), airportname2.begin(), ::toupper);
+
+        for(auto air : getAirports())
+        {
+            if(air->getInfo().getCode() == airportname2)
+            {
+                Air.push_back(air->getInfo());
+            }
+        }
+
+        if(Air.size() == 0)
+        {
+            std::cout << "Airport with code " << airportname2 << " was  not found. " << std::endl;
+            return nullptr;
+        }
+        else
+        {
+            return findVertex(Air[0]);
+        }
+
+    }
+    else
+    {
+        airportname2 = cityTransformer(airportname);
+
+        for(auto air : getAirports())
+        {
+            if(air->getInfo().getName() == airportname2)
+            {
+                Air.push_back(air->getInfo());
+            }
+        }
+
+        if(Air.size() == 0)
+        {
+            std::cout << "The airport " << airportname2 << " was not found. " << std::endl;
+            return nullptr;
+        }
+        else
+        {
+            return findVertex(Air[0]);
+        }
+    }
+}
+
+Vertex<Airport>* FMSGraph::coordinatesOption()
+{
+    double longitude;
+    double latitude;
+    double distancee = DBL_MAX;
+    vector<Airport> chosen;
+    int count = 1;
+    int choice;
+
+    std::cout << "What are the coordenates where you are trying to find an airport " << std::endl;
+    std::cout << std::endl << "Latitude: ";
+    std::cin >> latitude;
+    std::cout << "Longitude: ";
+    std::cin >> longitude;
+    std::cout << std::endl;
+
+    for(auto aiport : getAirports())
+    {
+        if(Distance(latitude,longitude,aiport->getInfo().getLatitude(),aiport->getInfo().getLongitude()) < distancee)
+        {
+            chosen.clear();
+            chosen.push_back(aiport->getInfo());
+        }
+
+        else if(Distance(latitude,longitude,aiport->getInfo().getLatitude(),aiport->getInfo().getLongitude()) == distancee)
+        {
+            chosen.push_back(aiport->getInfo());
+        }
     }
 
+    std::cout<< "The closest airport/s is/are: " << std::endl;
 
+    for(auto a : chosen)
+    {
+        std::cout << count << " - " << a.getName() << " (" << a.getCode() << ")" << std::endl;
+        count++;
+    }
+
+    std::cout << "Chose the desired airport (select the airport number): ";
+    std::cin >> choice;
+    std::cout << std::endl;
+
+    return findVertex(chosen[choice - 1]);
 }
 
 vector<Airport> FMSGraph::cityAirports(std::string city)

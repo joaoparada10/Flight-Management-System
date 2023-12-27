@@ -4,6 +4,7 @@
 #include "FileReader.h"
 #include <iostream>
 #include <filesystem>
+#include "Menu.h"
 
 int main(){
     std::cout << "Hello World" << std::endl;
@@ -20,5 +21,8 @@ int main(){
     testGraph.flighsPerAirline("IBE");
     testGraph.numOfDestinationsCity("lisbo");
     testGraph.numOfDestinationsAirport("orp");
+    Menu menu;
+    menu.getMainMenu(testGraph);
+    
     return 0;
 }

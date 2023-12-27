@@ -5,18 +5,16 @@
 #ifndef PROJETO2_MENU_H
 #define PROJETO2_MENU_H
 
-#include <stack>
 
 class Menu {
 private:
     int menuState;
 public:
     Menu();
-    void menuSwitch();
-    void getFlightMenu();
-    void getStatMenu();
-    void getMainMenu();
-    void getExtrasMenu();
+    void getFlightMenu(FMSGraph graph);
+    void getStatMenu(FMSGraph graph);
+    void getMainMenu(FMSGraph graph);
+    void getExtrasMenu(FMSGraph graph);
     void menuPush(int i);
 };
 

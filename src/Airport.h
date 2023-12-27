@@ -7,6 +7,7 @@
 #include <string>
 #include <set>
 #include "Airline.h"
+#include <vector>
 
 using namespace std;
 
@@ -16,8 +17,8 @@ private:
     std::string name;
     std::string city;
     std::string country;
-    double latitude;
-    double longitude;
+    double latitude{};
+    double longitude{};
 
 public:
     Airport(std::string code, std::string name, std::string city, std::string country, double latitude, double longitude);
@@ -29,7 +30,10 @@ public:
     double getLongitude();
     double calculateDistance(const Airport& otherAirport);
     bool operator==(const Airport& other) const;
+    vector<Airport> travelPath(Airport otherAirport);
 
+
+    bool operator<(const Airport& other) const;
 };
 
 

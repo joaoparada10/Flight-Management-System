@@ -26,16 +26,20 @@ public:
     void removeFlight( Flight& flight);
     Airport findAirport(std::string code);
     Airline getAirline(std::string code);
-    void airportFlightCount();
-    void flightsPerAirport(std::string code);
+    void airportFlightCount();      //i.
+    void flightsPerAirport(std::string code);       //ii.
     vector<Vertex<Airport> * > getAirports() const;
-    void flightsPerCity(std::string city);
-    void flighsPerAirline(std::string airline);
-    void numOfDestinationsCity(std::string city);
-    void numOfDestinationsAirport(std::string code);
-    void maxTrip();
-    void topAirports(int numOfAirports);
+    void flightsPerCity(std::string city);          //iii.
+    void flighsPerAirline(std::string airline);     //iii.
+    void airportDestinations(std::string code);     //v.
+    void reachableDestinationsInXStops(std::string code,int n); //vi.
+    void numOfDestinationsCity(std::string city);       //iv.
+    void numOfDestinationsAirport(std::string code);    //iv.
+    void maxTrip();         //vii.
+    void topAirports(int numOfAirports);        //viii.
     void essentialAirports();
+    int connectedComponents();
+    void connectedComponentsDfsVisit(Vertex<Airport>* v, set<std::string> & airportCount);
 
 };
 

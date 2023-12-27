@@ -66,6 +66,7 @@ Airport FMSGraph::findAirport(std::string code)
     }
 }
 
+
 Airline FMSGraph::getAirline(std::string code)
 {
     auto it = airlinesMap.find(code);
@@ -74,7 +75,12 @@ Airline FMSGraph::getAirline(std::string code)
     }
 }
 
-void FMSGraph::airportFlightCount() {
+/**
+ * Function that shows the global number of airports and the global number of flights
+ * Time Complexity: O(N)
+ */
+
+void FMSGraph::airportFlightCount() {                //i.
     int airportCount = 0;
     int flightCount = 0;
     for (auto v : getVertexSet()){
@@ -85,7 +91,7 @@ void FMSGraph::airportFlightCount() {
     std::cout << "Global number of flights: " << flightCount << std::endl;
 }
 
-void FMSGraph::flightsPerAirport(std::string code) {
+void FMSGraph::flightsPerAirport(std::string code) {            //ii.
     Airport airport = findAirport(code);
     set<Airline> airlines;
     auto v = findVertex(airport);
@@ -98,12 +104,13 @@ void FMSGraph::flightsPerAirport(std::string code) {
     << " different airlines." << std::endl;
 }
 
+
 vector<Vertex<Airport> * > FMSGraph::getAirports() const
 {
     return getVertexSet();
 }
 
-void FMSGraph::flightsPerCity(std::string city)
+void FMSGraph::flightsPerCity(std::string city)             //iii.
 {
     /**
      * @return Returns the number of diferent departures occur in a city ( it can have different airports)
@@ -131,7 +138,7 @@ void FMSGraph::flightsPerCity(std::string city)
     std::cout << "There are " << numOfFlights << " out of the city of " << city2 << std::endl;
 }
 
-void FMSGraph::flighsPerAirline(std::string airline)
+void FMSGraph::flighsPerAirline(std::string airline)                //iii.
 {
     /**
      * @return Returns the number of flights that each airline can do
@@ -157,7 +164,7 @@ void FMSGraph::flighsPerAirline(std::string airline)
     std::cout << "There are " << numOfFlights << " from " << airlinesMap.find(airline)->second.getName() << std::endl;
 }
 
-void FMSGraph::numOfDestinationsCity(std::string city)
+void FMSGraph::numOfDestinationsCity(std::string city)            //iv.
 {
     /**
      * @return Returns the number of diferent countries that a city has connections to
@@ -196,7 +203,7 @@ void FMSGraph::numOfDestinationsCity(std::string city)
         std::cout << "The city of " << city2 << " was not found or it does not have an airport" << std::endl;
 }
 
-void FMSGraph::numOfDestinationsAirport(std::string code)
+void FMSGraph::numOfDestinationsAirport(std::string code)           //iv.
 {
     /**
      * @return Returns the number of diferent countries that an airport has connections to
@@ -238,8 +245,63 @@ void FMSGraph::numOfDestinationsAirport(std::string code)
     }
 
 }
+void FMSGraph::airportDestinations(std::string code) {      //v.
+    set<std::string> airportCount;
+    set<std::string> cityCount;
+    set<std::string> countryCount;
+    auto v = findVertex(findAirport(code));
+    for (auto e : v->getAdj()){
+        airportCount.insert(e.getDest()->getInfo().getName());
+        cityCount.insert(e.getDest()->getInfo().getCity());
+        countryCount.insert(e.getDest()->getInfo().getCountry());
+    }
+    std::cout << "The airport " << code << " has the following number of destinations: " << std::endl;
+    std::cout << "- " << airportCount.size() << " different airports." << std::endl;
+    std::cout << "- " << cityCount.size() << " different cities." << std::endl;
+    std::cout << "- " << countryCount.size() << " different countries." << std::endl;
 
-void FMSGraph::maxTrip()
+}
+void FMSGraph::reachableDestinationsInXStops(std::string code, int n) {          //vi.
+    set<std::string> airportCount;
+    set<std::string> cityCount;
+    set<std::string> countryCount;
+    auto s = findVertex(findAirport(code));
+    if (s == nullptr) {
+        std::cout << "The airport with the code " << code << " doesn't exist." << std::endl;
+        return;
+    }
+    queue<Vertex<Airport>*> q;
+    for (auto v : getVertexSet())
+        v->setVisited(false);
+    q.push(s);
+    s->setVisited(true);
+    int stops = 0;
+    while (!q.empty() && stops <= n) {
+        int currentLevelSize = q.size();  // Number of nodes at the current level
+        for (int i = 0; i < currentLevelSize; ++i) {
+            auto v = q.front();
+            q.pop();
+            for (auto& e : v->getAdj()) {
+                auto w = e.getDest();
+                airportCount.insert(w->getInfo().getCode());
+                cityCount.insert(w->getInfo().getCity());
+                countryCount.insert(w->getInfo().getCountry());
+                if (!w->isVisited()) {
+                    q.push(w);
+                    w->setVisited(true);
+                }
+            }
+        }
+        stops++;
+    }
+    std::cout << "The airport " << code << " can reach the following number of destinations in a maximum of " <<
+              n << " stops:" << std::endl;
+    std::cout << "- " << airportCount.size() << " different airports." << std::endl;
+    std::cout << "- " << cityCount.size() << " different cities." << std::endl;
+    std::cout << "- " << countryCount.size() << " different countries." << std::endl;
+}
+
+void FMSGraph::maxTrip()            //vii.
 {
     /**
      * @return Returns the pairs that have the most conections between them
@@ -283,7 +345,7 @@ void FMSGraph::maxTrip()
     }
 }
 
-void FMSGraph::topAirports(int numOfAirports)
+void FMSGraph::topAirports(int numOfAirports)           //viii.
 {
     /**
      * @return Returns the top k airports with more traffic
@@ -336,3 +398,29 @@ void FMSGraph::essentialAirports()
     }
 
 }
+
+void FMSGraph::connectedComponentsDfsVisit(Vertex<Airport>* v, set<std::string> & airportCount) {
+    v->setVisited(true);
+    for (auto & e : v->getAdj()) {
+        auto w = e.getDest();
+        airportCount.insert(w->getInfo().getCode());
+        if ( ! w->isVisited())
+            connectedComponentsDfsVisit(w, airportCount);
+    }
+}
+int FMSGraph::connectedComponents() {
+    int counter = 0;
+    set<std::string> airportCount;
+    for (auto v : getVertexSet()) v->setVisited(false);
+    for (auto v : getVertexSet()){
+        if (!v->isVisited()){
+            counter++;
+            connectedComponentsDfsVisit(v,airportCount);
+            std::cout << "Size of " << counter << "th component:" << airportCount.size() << std::endl;
+            airportCount.clear();
+        }
+    }
+    return counter;
+}
+
+

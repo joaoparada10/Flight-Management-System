@@ -3,7 +3,6 @@
 //
 #include "FileReader.h"
 #include <iostream>
-#include <filesystem>
 
 int main(){
     std::cout << "Hello World" << std::endl;
@@ -11,16 +10,15 @@ int main(){
     FileReader::airlineMap("data/airlines.csv",testGraph);
     FileReader::addAirports("data/airports.csv", testGraph);
     FileReader::addFlights("data/flights.csv",testGraph);
-    Airline testAirline = testGraph.getAirline("RYR");
-    std::cout << testAirline.getCode() << " " << testAirline.getName() << " " << testAirline.getCallsign() << " "
-    << testAirline.getCountry() << std::endl;
-    testGraph.airportFlightCount();
-    testGraph.flightsPerAirport("OPO");
-    testGraph.flightsPerCity("lisbon");
-    testGraph.flighsPerAirline("IBE");
-    testGraph.numOfDestinationsCity("lisbo");
-    testGraph.numOfDestinationsAirport("orp");
-    testGraph.maxTrip();
-    testGraph.topAirports(9);
+    //testGraph.airportFlightCount();                                 //i.
+    testGraph.flightsPerAirport("OPO");                     //ii.
+    /*testGraph.flightsPerCity("lisbon");                     //iii.
+    testGraph.flighsPerAirline("IBE");                      //iii.
+    testGraph.numOfDestinationsCity("HORTA");               //iv.
+    testGraph.numOfDestinationsAirport("FAO");              //iv.
+    testGraph.airportDestinations("OPO");                    //v
+    testGraph.reachableDestinationsInXStops("OPO",7);   //vi.
+    testGraph.maxTrip();                                        //vii
+    testGraph.topAirports(9);                       //viii */
     return 0;
 }

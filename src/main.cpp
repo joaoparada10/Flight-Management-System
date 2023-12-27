@@ -5,7 +5,7 @@
 #include <iostream>
 
 int main(){
-    std::cout << "Hello World" << std::endl;
+    std::cout << "Hello World :D" << std::endl;
     FMSGraph testGraph;
     FileReader::airlineMap("data/airlines.csv",testGraph);
     FileReader::addAirports("data/airports.csv", testGraph);
@@ -21,12 +21,14 @@ int main(){
     testGraph.maxTrip();                                        //vii
     testGraph.topAirports(9);                       //viii */
     //testGraph.essentialAirports();
-    vector<vector<Vertex<Airport>*>> test = testGraph.findAllShortestPathsBetweenAirports(testGraph.findVertex(testGraph.findAirport("OPO")),testGraph.findVertex(testGraph.findAirport("LIS")));
+    /*vector<vector<Vertex<Airport>*>> test = testGraph.findAllShortestPathsBetweenAirports(testGraph.findVertex(testGraph.findAirport("OPO")),testGraph.findVertex(testGraph.findAirport("LIS")));
     for (auto path : test){
         for (auto v : path){
             std::cout << v->getInfo().getName() << " - ";
         }
         std::cout << std::endl;
-    }
+    }*/
+
+    testGraph.bestFlightOption();
     return 0;
 }

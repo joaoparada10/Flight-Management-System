@@ -80,3 +80,7 @@ bool Airport::operator==(const Airport& other) const {
     return this->code == other.code;
 }
 
+bool Airport::operator<(const Airport &other) const {
+    return this->code < other.code;
+}
+

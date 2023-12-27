@@ -37,6 +37,7 @@ public:
     void numOfDestinationsAirport(std::string code);    //iv.
     void maxTrip();         //vii.
     void topAirports(int numOfAirports);        //viii.
+    void articulationDfs(Vertex<Airport>* v, set<Airport> & articulationAirports, int index);
     void essentialAirports();
     int connectedComponents();
     void connectedComponentsDfsVisit(Vertex<Airport>* v, set<std::string> & airportCount);

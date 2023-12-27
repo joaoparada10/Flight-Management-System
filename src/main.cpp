@@ -28,7 +28,7 @@ int main(){
             std::cout << v->getInfo().getName() << " - ";
         }
         std::cout << std::endl;
-    }*/
+    }
 
     testGraph.bestFlightOption();
     return 0;

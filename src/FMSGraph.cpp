@@ -197,10 +197,6 @@ bool compareTrips(const vector<Vertex<Airport>*>& trip1, const vector<Vertex<Air
     return calculateFullDistance(trip1) < calculateFullDistance(trip2);
 }
 
-void sorttrips(std::vector<std::vector<Vertex<Airport>*>>& possibletrips)
-{
-    std::sort(possibletrips.begin(), possibletrips.end(), compareTrips);
-}
 
 void FMSGraph::flightsPerCity(std::string city)             //iii.
 {
@@ -625,7 +621,7 @@ void FMSGraph::bestFlightOption()
 {
     Vertex<Airport>* source;
     Vertex<Airport>* destination;
-    std::vector<std::vector<Vertex<Airport>*>> possiblePaths;
+    set<vector<Vertex<Airport>*>> possiblePaths;
     int choice;
     int choice2;
     int count = 1;
@@ -639,14 +635,15 @@ void FMSGraph::bestFlightOption()
     std::cout << "Option selected:";
     std::cin >> choice; // fazer switch case
 
-    if(choice == 1)
-        source = cityOption();
-
-    else if (choice == 2)
-        source = airportOption();
-
-    else if( choice == 3)
-        source = coordinatesOption();
+    switch(choice){
+        case 1: source = cityOption();
+            break;
+        case 2: source = airportOption();
+            break;
+        case 3: source = coordinatesOption();
+            break;
+        default: break;
+    }
 
     std::cout << "Where to do you want to go?" << std::endl;
 
@@ -656,29 +653,29 @@ void FMSGraph::bestFlightOption()
 
     std::cin >> choice2; // fazer switch case
 
-    if(choice2 == 1)
-        source = cityOption();
-
-    else if (choice2 == 2)
-        source = airportOption();
-
-    else if( choice2 == 3)
-        source = coordinatesOption();
+    switch(choice2){
+        case 1: destination = cityOption();
+        break;
+        case 2: destination = airportOption();
+        break;
+        case 3: destination = coordinatesOption();
+        break;
+        default: break;
+    }
 
     possiblePaths = findAllShortestPathsBetweenAirports(source,destination);
-    sorttrips(possiblePaths);
 
     std::cout << "Your possible path(s) to your destination is/are (ordered by total travel distance): " << std::endl;
 
     for(auto path : possiblePaths)
     {
-        std::cout << count << " - (total distance: " << calculateFullDistance(path) << ") ";
+        std::cout << count << " - (total distance: " << calculateFullDistance(path) << "KM) ";
 
         for(auto airport : path)
         {
             std::cout << airport->getInfo().getName() <<  "(" << airport->getInfo().getCode() << ") " << " -> ";
         }
-
+        std::cout << std::endl;
         count++;
     }
 }
@@ -715,7 +712,7 @@ Vertex<Airport>* FMSGraph::cityOption()
         std::cout << "Option number: ";
         std::cin >> choice;
 
-        Airport chosenAirport = cityAir[count - 1];
+        Airport chosenAirport = cityAir[choice - 1];
 
         return findVertex(chosenAirport); // returns  the airport u want
     }
@@ -724,11 +721,11 @@ Vertex<Airport>* FMSGraph::cityOption()
 Vertex<Airport>* FMSGraph::airportOption()
 {
     std::string airportname;
-    std::string airportname2 = airportname;
     vector<Airport> Air;
 
     std::cout << "What airport will you be chosing?" << std::endl;
     std::cin >> airportname;
+    std::string airportname2 = airportname;
 
     if(airportname.size() == 3)
     {
@@ -742,7 +739,7 @@ Vertex<Airport>* FMSGraph::airportOption()
             }
         }
 
-        if(Air.size() == 0)
+        if(Air.empty())
         {
             std::cout << "Airport with code " << airportname2 << " was  not found. " << std::endl;
             return nullptr;
@@ -781,27 +778,29 @@ Vertex<Airport>* FMSGraph::coordinatesOption()
 {
     double longitude;
     double latitude;
-    double distancee = DBL_MAX;
+    auto distancee = DBL_MAX;
     vector<Airport> chosen;
     int count = 1;
     int choice;
 
     std::cout << "What are the coordenates where you are trying to find an airport " << std::endl;
-    std::cout << std::endl << "Latitude: ";
+    std::cout << "Latitude:";
     std::cin >> latitude;
-    std::cout << "Longitude: ";
+    std::cout << "Longitude:";
     std::cin >> longitude;
     std::cout << std::endl;
 
-    for(auto aiport : getAirports())
-    {
-        if(Distance(latitude,longitude,aiport->getInfo().getLatitude(),aiport->getInfo().getLongitude()) < distancee)
+    for(auto aiport : getAirports()){
+        double d = Distance(latitude,longitude,aiport->getInfo().getLatitude(),aiport->getInfo().getLongitude());
+
+        if(d < distancee)
         {
+            distancee = d;
             chosen.clear();
             chosen.push_back(aiport->getInfo());
         }
 
-        else if(Distance(latitude,longitude,aiport->getInfo().getLatitude(),aiport->getInfo().getLongitude()) == distancee)
+        else if(d == distancee)
         {
             chosen.push_back(aiport->getInfo());
         }

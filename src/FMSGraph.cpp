@@ -522,10 +522,10 @@ int FMSGraph::lowestNumberOfStops(Vertex<Airport>* source, Vertex<Airport>* dest
     return -1;
 }
 
-std::vector<std::vector<Vertex<Airport>*>> FMSGraph::findAllShortestPathsBetweenAirports(Vertex<Airport>* source, Vertex<Airport>* destination) {
+set<vector<Vertex<Airport>*>> FMSGraph::findAllShortestPathsBetweenAirports(Vertex<Airport>* source, Vertex<Airport>* destination) {
     int d = lowestNumberOfStops(source, destination);
-    std::vector<std::vector<Vertex<Airport>*>> allPaths;
-    std::queue<std::vector<Vertex<Airport>*>> q;
+    set<vector<Vertex<Airport>*>> allPaths;
+    queue<vector<Vertex<Airport>*>> q;
 
     for (auto v : getVertexSet()) {
         for (auto e : v->getAdj()) {
@@ -533,11 +533,11 @@ std::vector<std::vector<Vertex<Airport>*>> FMSGraph::findAllShortestPathsBetween
         }
     }
 
-    std::vector<Vertex<Airport>*> initialPath = {source};
+    vector<Vertex<Airport>*> initialPath = {source};
     q.push(initialPath);
 
     while (!q.empty()) {
-        std::vector<Vertex<Airport>*> currentPath = q.front();
+        vector<Vertex<Airport>*> currentPath = q.front();
         q.pop();
 
         Vertex<Airport>* u = currentPath.back();
@@ -546,12 +546,12 @@ std::vector<std::vector<Vertex<Airport>*>> FMSGraph::findAllShortestPathsBetween
             Vertex<Airport>* w = e.getDest();
 
             if (!e.isVisited()) {
-                std::vector<Vertex<Airport>*> newPath = currentPath;
+                vector<Vertex<Airport>*> newPath = currentPath;
                 newPath.push_back(w);
 
                 if (w == destination && newPath.size() == d + 1) {
                     // Found a valid path
-                    allPaths.push_back(newPath);
+                    allPaths.insert(newPath);
                 } else if (newPath.size() < d + 1) {
                     // Continue exploring the path
                     e.setVisited(true);

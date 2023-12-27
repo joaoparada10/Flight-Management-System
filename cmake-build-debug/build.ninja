@@ -40,6 +40,75 @@ include CMakeFiles/rules.ninja
 # Logical path to working directory; prefix for absolute paths.
 
 cmake_ninja_workdir = C$:/Users/jonas/Desktop/C++/AEDProject2/cmake-build-debug/
+# =============================================================================
+# Object build statements for EXECUTABLE target main
+
+
+#############################################
+# Order-only phony target for main
+
+build cmake_object_order_depends_target_main: phony || CMakeFiles/main.dir
+
+build CMakeFiles/main.dir/src/main.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/main.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles\main.dir\src\main.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\main.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
+
+build CMakeFiles/main.dir/src/FileReader.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/FileReader.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles\main.dir\src\FileReader.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\main.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
+
+build CMakeFiles/main.dir/src/Airline.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/Airline.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles\main.dir\src\Airline.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\main.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
+
+build CMakeFiles/main.dir/src/Airport.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/Airport.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles\main.dir\src\Airport.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\main.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
+
+build CMakeFiles/main.dir/src/Flight.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/Flight.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles\main.dir\src\Flight.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\main.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
+
+build CMakeFiles/main.dir/src/FMSGraph.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/FMSGraph.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles\main.dir\src\FMSGraph.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\main.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
+
+build CMakeFiles/main.dir/src/Menu.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/Menu.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles\main.dir\src\Menu.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\main.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target main
+
+
+#############################################
+# Link the executable main.exe
+
+build main.exe: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/src/main.cpp.obj CMakeFiles/main.dir/src/FileReader.cpp.obj CMakeFiles/main.dir/src/Airline.cpp.obj CMakeFiles/main.dir/src/Airport.cpp.obj CMakeFiles/main.dir/src/Flight.cpp.obj CMakeFiles/main.dir/src/FMSGraph.cpp.obj CMakeFiles/main.dir/src/Menu.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\main.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = main.exe
+  TARGET_IMPLIB = libmain.dll.a
+  TARGET_PDB = main.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -107,6 +176,12 @@ build src/CMakeFiles/AEDProject2.dir/FMSGraph.cpp.obj: CXX_COMPILER__AEDProject2
   OBJECT_DIR = src\CMakeFiles\AEDProject2.dir
   OBJECT_FILE_DIR = src\CMakeFiles\AEDProject2.dir
 
+build src/CMakeFiles/AEDProject2.dir/Menu.cpp.obj: CXX_COMPILER__AEDProject2_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/Menu.cpp || cmake_object_order_depends_target_AEDProject2
+  DEP_FILE = src\CMakeFiles\AEDProject2.dir\Menu.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = src\CMakeFiles\AEDProject2.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\AEDProject2.dir
+
 build src/CMakeFiles/AEDProject2.dir/main.cpp.obj: CXX_COMPILER__AEDProject2_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/main.cpp || cmake_object_order_depends_target_AEDProject2
   DEP_FILE = src\CMakeFiles\AEDProject2.dir\main.cpp.obj.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
@@ -121,7 +196,7 @@ build src/CMakeFiles/AEDProject2.dir/main.cpp.obj: CXX_COMPILER__AEDProject2_uns
 #############################################
 # Link the executable src\AEDProject2.exe
 
-build src/AEDProject2.exe: CXX_EXECUTABLE_LINKER__AEDProject2_Debug src/CMakeFiles/AEDProject2.dir/Airline.cpp.obj src/CMakeFiles/AEDProject2.dir/Airport.cpp.obj src/CMakeFiles/AEDProject2.dir/FileReader.cpp.obj src/CMakeFiles/AEDProject2.dir/Flight.cpp.obj src/CMakeFiles/AEDProject2.dir/FMSGraph.cpp.obj src/CMakeFiles/AEDProject2.dir/main.cpp.obj
+build src/AEDProject2.exe: CXX_EXECUTABLE_LINKER__AEDProject2_Debug src/CMakeFiles/AEDProject2.dir/Airline.cpp.obj src/CMakeFiles/AEDProject2.dir/Airport.cpp.obj src/CMakeFiles/AEDProject2.dir/FileReader.cpp.obj src/CMakeFiles/AEDProject2.dir/Flight.cpp.obj src/CMakeFiles/AEDProject2.dir/FMSGraph.cpp.obj src/CMakeFiles/AEDProject2.dir/Menu.cpp.obj src/CMakeFiles/AEDProject2.dir/main.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = src\CMakeFiles\AEDProject2.dir
@@ -161,6 +236,8 @@ build AEDProject2: phony src/AEDProject2.exe
 
 build AEDProject2.exe: phony src/AEDProject2.exe
 
+build main: phony main.exe
+
 # =============================================================================
 # Folder targets.
 
@@ -169,7 +246,7 @@ build AEDProject2.exe: phony src/AEDProject2.exe
 #############################################
 # Folder: C:/Users/jonas/Desktop/C++/AEDProject2/cmake-build-debug
 
-build all: phony src/all
+build all: phony main.exe src/all
 
 # =============================================================================
 

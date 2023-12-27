@@ -3,6 +3,7 @@
 //
 #include "FileReader.h"
 #include <iostream>
+#include "Menu.h"
 
 int main(){
     std::cout << "Hello World :D" << std::endl;
@@ -29,7 +30,7 @@ int main(){
         }
         std::cout << std::endl;
     }
-
-    testGraph.bestFlightOption();
+    Menu menu;
+    menu.getMainMenu(testGraph);
     return 0;
 }

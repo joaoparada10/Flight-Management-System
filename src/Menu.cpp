@@ -54,11 +54,13 @@ void Menu::getStatMenu(FMSGraph graph){
     switch(selected){
         case 1:
             graph.airportFlightCount();
+            getMainMenu(graph);
             break;
         case 2:
             cout<<"Insert the airport code"<< endl;
             cin>>code2;
             graph.flighsPerAirline(code2);
+            getMainMenu(graph);
             break;
         case 3:
             cout << "Do you wish to search for :"<< endl;
@@ -70,11 +72,13 @@ void Menu::getStatMenu(FMSGraph graph){
                     cout<<"Input the city name"<< endl;
                     cin >> city3;
                     graph.flightsPerCity(city3);
+                    getMainMenu(graph);
                     break;
                 case 2:
                     cout<<"Input the airline name"<< endl;
                     cin >> airline3;
                     graph.flighsPerAirline(airline3);
+                    getMainMenu(graph);
                     break;
                 default:
                     cout <<"Please select a valid choice."<< endl;
@@ -93,11 +97,13 @@ void Menu::getStatMenu(FMSGraph graph){
                     cout<<"Input the city name"<< endl;
                     cin >> city4;
                     graph.numOfDestinationsCity(city4);
+                    getMainMenu(graph);
                     break;
                 case 2:
                     cout<<"Input the airport name"<< endl;
                     cin >> airport4;
                     graph.numOfDestinationsAirport(airport4);
+                    getMainMenu(graph);
                     break;
                 default:
                     cout <<"Please select a valid choice."<< endl;
@@ -108,7 +114,8 @@ void Menu::getStatMenu(FMSGraph graph){
 
             cout << "Insert the airport code"<< endl;
             cin >> code5;
-            //graph.airportDestinations(code5);
+            graph.airportDestinations(code5);
+            getMainMenu(graph);
             break;
 
         case 6:
@@ -117,23 +124,29 @@ void Menu::getStatMenu(FMSGraph graph){
             cin >> airport6;
             cout << "Insert the number of stops"<< endl;
             cin >> stops6;
-            //graph.reachableDestinationsInXStops(airport6, stops6);
+            graph.reachableDestinationsInXStops(airport6, stops6);
+            getMainMenu(graph);
             break;
         case 7:
-            //graph.maxTrip();
+            graph.maxTrip();
+            getMainMenu(graph);
             break;
         case 8:
 
             cout << "Insert the number of airports on the list"<< endl;
             cin >> numAirports8;
-            //graph.topAirports(numAirports8);
+            graph.topAirports(numAirports8);
+            getMainMenu(graph);
             break;
         case 9:
+            graph.essentialAirports();
+            getMainMenu(graph);
             break;
         case 10:
             getMainMenu(graph);
         default :
             cout << "Invalid choice. Please try again." << endl;
+            getStatMenu(graph);
     }
 }
 void Menu::getFlightMenu(FMSGraph graph){

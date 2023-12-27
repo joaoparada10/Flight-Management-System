@@ -621,7 +621,7 @@ set<vector<Vertex<Airport>*>> FMSGraph::findAllShortestPathsBetweenAirports(Vert
 
 
 
-void FMSGraph::bestFlightOption()
+/*void FMSGraph::bestFlightOption()
 {
     Vertex<Airport>* source;
     Vertex<Airport>* destination;
@@ -681,7 +681,7 @@ void FMSGraph::bestFlightOption()
 
         count++;
     }
-}
+}*/
 
 Vertex<Airport>* FMSGraph::cityOption()
 {

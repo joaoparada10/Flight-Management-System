@@ -22,8 +22,8 @@ public:
     void removeAirline(Airline& airline);
     void addAirport(Airport& airport);
     void removeAirport(const Airport& airport);
-    void addFlight(Flight& flight);
-    void removeFlight( Flight& flight);
+    /*void addFlight(Flight& flight);
+    void removeFlight( Flight& flight);*/
     Airport findAirport(std::string code);
     Airline getAirline(std::string code);
     void airportFlightCount();      //i.
@@ -49,6 +49,8 @@ public:
     Vertex<Airport>* cityOption();
     Vertex<Airport>* airportOption();
     Vertex<Airport>* coordinatesOption();
+    vector<Airline> getSelectedAirlines();
+    FMSGraph airlineFilter(vector<Airline> selectedAirlines);
 };
 
 

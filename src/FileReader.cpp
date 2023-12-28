@@ -20,7 +20,7 @@ void FileReader::airlineMap(const std::string &filename,FMSGraph &ourGraph)
                std::getline(iss, Country,'\r'))
             {
                 Airline newAirline = Airline(Code,Name,Callsign,Country);
-                ourGraph.addAirline(newAirline); // se alguem conseguir dar check porque e que a forma normal de fazer isto nao funciona
+                ourGraph.addAirline(newAirline);
             }
         }
     }
@@ -79,9 +79,7 @@ void FileReader::addFlights(const std::string &filename, FMSGraph &ourGraph)
                 Airport sourceAirport = ourGraph.findAirport(Source);
                 Airport targetAirport = ourGraph.findAirport(Target);
                 Airline airline = ourGraph.getAirline(AirlineCode);
-
-                Flight newFlight = Flight(sourceAirport,targetAirport,airline);
-                ourGraph.addFlight(newFlight);
+                ourGraph.addEdge(sourceAirport,targetAirport,AirlineCode);
             }
         }
 

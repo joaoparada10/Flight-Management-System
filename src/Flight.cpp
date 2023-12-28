@@ -1,4 +1,4 @@
-//
+/*//
 // Created by jonas on 17/12/2023.
 //
 
@@ -23,3 +23,4 @@ Airport Flight::getTarget()
 {
     return this->target;
 }
+*/

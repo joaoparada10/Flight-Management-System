@@ -45,7 +45,7 @@ void FMSGraph::removeAirport(const Airport& airport)
 }
 
 
-
+/*
 void FMSGraph::addFlight(Flight& flight)
 {
     addEdge(flight.getSource(),flight.getTarget(),flight.getAirline().getCode());
@@ -56,7 +56,7 @@ void FMSGraph::removeFlight(Flight& flight)
 {
     removeEdge(flight.getSource(),flight.getTarget());
 }
-
+*/
 Airport FMSGraph::findAirport(std::string code)
 {
     vector<Vertex<Airport> * > airports = getVertexSet();
@@ -68,6 +68,7 @@ Airport FMSGraph::findAirport(std::string code)
             return v->getInfo();
         }
     }
+    return Airport("","","","",0,0);
 }
 
 
@@ -77,6 +78,7 @@ Airline FMSGraph::getAirline(std::string code)
     if (it != airlinesMap.end()) {
         return it->second;
     }
+    else return Airline("","","","");
 }
 
 /**
@@ -121,6 +123,7 @@ Airport FMSGraph::getAirport(std::string code)
         if(airport->getInfo().getCode() == code)
             return airport->getInfo();
     }
+    return Airport("","","","",0,0);
 }
 
 string cityTransformer(string city)
@@ -695,7 +698,7 @@ Vertex<Airport>* FMSGraph::cityOption()
     int count = 1;
 
 
-    std::cout << "What city will you be chosing?" << std::endl;
+    std::cout << "What city will you be choosing?" << std::endl;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin, city);
 
@@ -709,7 +712,7 @@ Vertex<Airport>* FMSGraph::cityOption()
     }
     else
     {
-        std::cout << "What airport do you want to chose? (enter airport number) " << std::endl;
+        std::cout << "What airport do you want to choose? (enter airport number) " << std::endl;
 
         for(auto airport : cityAir)
         {
@@ -731,7 +734,7 @@ Vertex<Airport>* FMSGraph::airportOption()
     std::string airportname;
     vector<Airport> Air;
 
-    std::cout << "What airport will you be chosing?" << std::endl;
+    std::cout << "What airport will you be choosing?" << std::endl;
     std::cin >> airportname;
     std::string airportname2 = airportname;
 
@@ -791,7 +794,7 @@ Vertex<Airport>* FMSGraph::coordinatesOption()
     int count = 1;
     int choice;
 
-    std::cout << "What are the coordenates where you are trying to find an airport " << std::endl;
+    std::cout << "What are the coordinates where you are trying to find an airport " << std::endl;
     std::cout << "Latitude:";
     std::cin >> latitude;
     std::cout << "Longitude:";
@@ -822,7 +825,7 @@ Vertex<Airport>* FMSGraph::coordinatesOption()
         count++;
     }
 
-    std::cout << "Chose the desired airport (select the airport number): ";
+    std::cout << "Choose the desired airport (select the airport number): ";
     std::cin >> choice;
     std::cout << std::endl;
 
@@ -843,4 +846,65 @@ vector<Airport> FMSGraph::cityAirports(std::string city)
 
     return cityAir;
 }
+
+vector<Airline> FMSGraph::getSelectedAirlines() {
+    vector<string> airlineCodes;
+    vector<Airline> airlines;
+    string codes;
+
+    // Prompt the user for input
+    cout << "Which airlines do you want to travel with? Enter one or more airline codes (comma separated):" << endl;
+    getline(cin, codes);
+
+    // Use a stringstream to parse the input
+    stringstream ss(codes);
+    string code;
+
+    // Extract codes and clean them up
+    while (getline(ss, code, ',')) {
+        code.erase(remove_if(code.begin(), code.end(), ::isspace), code.end());
+        transform(code.begin(), code.end(), code.begin(), ::toupper);
+
+        if (!code.empty())
+            airlineCodes.push_back(code);
+    }
+
+    // Display selected airlines
+    cout << "The following airlines were found and added to your filter:" << endl;
+    for (const string& airlineCode : airlineCodes) {
+        Airline airline = getAirline(airlineCode);
+        if (!airline.getCode().empty()) {
+            airlines.push_back(airline);
+            cout << airline.getCode() << " - " << airline.getName() << " (" << airline.getCountry() << ")" << endl;
+        } else {
+            cout << "Airline with code " << airlineCode << " not found." << endl;
+        }
+    }
+
+    return airlines;
+}
+
+FMSGraph FMSGraph::airlineFilter(vector<Airline> selectedAirlines) {
+    FMSGraph filteredGraph;
+    vector<string> airlineCodes;
+    for (Airline a : selectedAirlines){
+        airlineCodes.push_back(a.getCode());
+        filteredGraph.addAirline(a);
+    }
+    for (auto v : getVertexSet()){
+        for(auto e : v->getAdj()){
+            auto it = std::find(airlineCodes.begin(), airlineCodes.end(),e.getWeight());
+            if (it != airlineCodes.end()){
+                Airport source = v->getInfo();
+                Airport destination = e.getDest()->getInfo();
+                filteredGraph.addAirport(source);
+                filteredGraph.addAirport(destination);
+                filteredGraph.addEdge(source,destination,e.getWeight());
+            }
+        }
+    }
+    return filteredGraph;
+}
+
+
 

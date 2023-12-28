@@ -59,7 +59,7 @@ void Menu::getStatMenu(FMSGraph graph){
         case 2:
             cout<<"Insert the airport code"<< endl;
             cin>>code2;
-            graph.flighsPerAirline(code2);
+            graph.flightsPerAirport(code2);
             getMainMenu(graph);
             break;
         case 3:
@@ -67,6 +67,7 @@ void Menu::getStatMenu(FMSGraph graph){
             cout << "1. City " << endl;
             cout << "2. Airline"<< endl;
             cout << "Select:"<< endl;
+            cin >> choice3;
             switch(choice3){
                 case 1:
                     cout<<"Input the city name"<< endl;

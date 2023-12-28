@@ -18,8 +18,6 @@
 #include "FMSGraph.h"
 
 
-
-
 void FMSGraph::addAirline(Airline& airline)
 {
     std::string code = airline.getCode();
@@ -125,27 +123,24 @@ Airport FMSGraph::getAirport(std::string code)
     }
 }
 
-std::string cityTransformer(std::string city)
+string cityTransformer(string city)
 {
     std::string city2 = city;
     std::transform(city2.begin(), city2.end(), city2.begin(), ::tolower);
 
     std::istringstream iss(city2);
     std::string word;
-    std::ostringstream result;
+    string result;
 
     while (iss >> word) {
         word[0] = std::toupper(word[0]);
-        result << word;
-
-        if (!(iss >> word)) {
-            break;
+        if (!result.empty()) {
+            result.append(" ");  // Add space only if there is a previous word
         }
-
-        result << ' ';
+        result.append(word);
     }
 
-    return result.str();
+    return result;
 }
 
 
@@ -486,7 +481,6 @@ void FMSGraph::articulationDfs(Vertex<Airport>* v, set<Airport> & articulationAi
             if ((v->getNum() == 1 && children > 1) || (v->getNum() > 1 && w->getLow() >= v->getNum()))
                 articulationAirports.insert(v->getInfo());
             }
-
         else {
             stack<Airport> tempStack = s;
             while (!tempStack.empty()) {
@@ -615,7 +609,14 @@ set<vector<Vertex<Airport>*>> FMSGraph::findAllShortestPathsBetweenAirports(Vert
     return allPaths;
 }
 
-
+struct PathComparator {
+    bool operator()(const std::vector<Vertex<Airport>*>& path1, const std::vector<Vertex<Airport>*>& path2) const {
+        // Compare the paths based on some criteria, e.g., total distance
+        double distance1 = calculateFullDistance(path1);
+        double distance2 = calculateFullDistance(path2);
+        return distance1 < distance2;
+    }
+};
 
 void FMSGraph::bestFlightOption()
 {
@@ -664,16 +665,22 @@ void FMSGraph::bestFlightOption()
     }
 
     possiblePaths = findAllShortestPathsBetweenAirports(source,destination);
+    set<vector<Vertex<Airport>*>,PathComparator> pathSet;
+    for (auto p : possiblePaths){
+        pathSet.insert(p);
+    }
 
     std::cout << "Your possible path(s) to your destination is/are (ordered by total travel distance): " << std::endl;
 
-    for(auto path : possiblePaths)
+    for(auto path : pathSet)
     {
         std::cout << count << " - (total distance: " << calculateFullDistance(path) << "KM) ";
 
         for(auto airport : path)
         {
-            std::cout << airport->getInfo().getName() <<  "(" << airport->getInfo().getCode() << ") " << " -> ";
+            if (airport->getInfo().getCode() != destination->getInfo().getCode())
+            std::cout << airport->getInfo().getName() << ", " << airport->getInfo().getCountry() <<  "(" << airport->getInfo().getCode() << ") " << " -> ";
+            else std::cout << airport->getInfo().getName() << ", " << airport->getInfo().getCountry() << "(" << airport->getInfo().getCode() << ") ";
         }
         std::cout << std::endl;
         count++;
@@ -689,12 +696,13 @@ Vertex<Airport>* FMSGraph::cityOption()
 
 
     std::cout << "What city will you be chosing?" << std::endl;
-    std::cin >> city;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::getline(std::cin, city);
 
     std::string city2 = cityTransformer(city);
     cityAir = cityAirports(city2);
 
-    if(cityAir.size() == 0)
+    if(cityAir.empty())
     {
         std::cout << "City was not found or does not have any airports. " << std::endl;
         return nullptr;

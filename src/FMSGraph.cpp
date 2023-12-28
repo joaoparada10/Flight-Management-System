@@ -621,16 +621,14 @@ struct PathComparator {
     }
 };
 
-void FMSGraph::bestFlightOption()
+void FMSGraph::bestFlightOption(Vertex<Airport>* source , Vertex<Airport>* destination)
 {
-    Vertex<Airport>* source;
-    Vertex<Airport>* destination;
     set<vector<Vertex<Airport>*>> possiblePaths;
     int choice;
     int choice2;
     int count = 1;
 
-    std::cout << "Where from do you want to depart?" << std::endl;
+    /*std::cout << "Where from do you want to depart?" << std::endl;
 
     std::cout << "Search by:" << std::endl << "City - 1" << std::endl <<
                                               "Airport (code/name) - 2 " << std::endl <<
@@ -665,7 +663,7 @@ void FMSGraph::bestFlightOption()
         case 3: destination = coordinatesOption();
         break;
         default: break;
-    }
+    }*/
 
     possiblePaths = findAllShortestPathsBetweenAirports(source,destination);
     set<vector<Vertex<Airport>*>,PathComparator> pathSet;

@@ -152,7 +152,52 @@ void Menu::getStatMenu(FMSGraph graph){
 }
 void Menu::getFlightMenu(FMSGraph graph){
     cout<<"----Flight Menu----"<< endl;
-    //WIP
+    cout<<"Where do you want to depart from?"<<endl;
+    cout<<"1. Airport" << endl;
+    cout<<"2. City" << endl;
+    cout<<"3. Coordinates" << endl;
+    int choice;
+    Vertex<Airport>* source;
+    Vertex<Airport>* dest;
+    cin>>choice;
+    switch(choice){
+        case 1:
+            source = graph.airportOption();
+            break;
+        case 2:
+            source = graph.cityOption();
+            break;
+        case 3:
+            source = graph.coordinatesOption();
+            break;
+        default :
+            cout << "Invalid choice. Please try again." << endl;
+            getFlightMenu(graph);
+    }
+    cout<<"----Flight Menu----"<< endl;
+    cout<<"Where do you want to go to?"<<endl;
+    cout<<"1. Airport" << endl;
+    cout<<"2. City" << endl;
+    cout<<"3. Coordinates" << endl;
+    int choice2;
+    cin>>choice2;
+    switch(choice2){
+        case 1:
+            dest = graph.airportOption();
+            break;
+        case 2:
+            dest = graph.cityOption();
+            break;
+        case 3:
+            dest = graph.coordinatesOption();
+            break;
+        default :
+            cout << "Invalid choice. Please try again." << endl;
+            getFlightMenu(graph);
+    }
+    graph.bestFlightOption(source , dest );
+    getMainMenu(graph);
+
 }
 void Menu::getExtrasMenu(FMSGraph graph){
     cout<<"----Extras Menu----"<< endl;

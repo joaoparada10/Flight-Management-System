@@ -32,9 +32,10 @@ int main(){
         std::cout << std::endl;
     }*/
     //testGraph.bestFlightOption();
-    vector<Airline> airlines = testGraph.getSelectedAirlines();
-    filteredGraph = testGraph.airlineFilter(airlines);
+    //vector<Airline> airlines = testGraph.getSelectedAirlines();
+    //filteredGraph = testGraph.airlineFilter(airlines);
     Menu menu;
-    menu.getMainMenu(filteredGraph);
+    //menu.getMainMenu(filteredGraph);
+    menu.getMainMenu(testGraph);
     return 0;
 }

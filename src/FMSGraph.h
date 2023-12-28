@@ -44,13 +44,11 @@ public:
     void connectedComponentsDfsVisit(Vertex<Airport>* v, set<std::string> & airportCount);
     int lowestNumberOfStops(Vertex<Airport>* source, Vertex<Airport>* destination);
     set<vector<Vertex<Airport>*>> findAllShortestPathsBetweenAirports(Vertex<Airport>* source, Vertex<Airport>* destination);
-    void bestFlightOption();
+    void bestFlightOption(Vertex<Airport>* source , Vertex<Airport>* destination);
     vector<Airport> cityAirports(std::string city);
     Vertex<Airport>* cityOption();
     Vertex<Airport>* airportOption();
     Vertex<Airport>* coordinatesOption();
-    vector<Airline> getSelectedAirlines();
-    FMSGraph airlineFilter(vector<Airline> selectedAirlines);
 };
 
 

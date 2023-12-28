@@ -9,7 +9,6 @@
 int main(){
     std::cout << "Hello World :D" << std::endl;
     FMSGraph testGraph;
-    FMSGraph filteredGraph;
     FileReader::airlineMap("data/airlines.csv",testGraph);
     FileReader::addAirports("data/airports.csv", testGraph);
     FileReader::addFlights("data/flights.csv",testGraph);
@@ -32,9 +31,7 @@ int main(){
         std::cout << std::endl;
     }*/
     //testGraph.bestFlightOption();
-    vector<Airline> airlines = testGraph.getSelectedAirlines();
-    filteredGraph = testGraph.airlineFilter(airlines);
     Menu menu;
-    menu.getMainMenu(filteredGraph);
+    menu.getMainMenu(testGraph);
     return 0;
 }

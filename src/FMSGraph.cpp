@@ -78,12 +78,14 @@ Airline FMSGraph::getAirline(std::string code)
     else return Airline("","","","");
 }
 
-/**
- * Function that shows the global number of airports and the global number of flights
- * Time Complexity: O(N)
- */
-
 void FMSGraph::airportFlightCount() {                //i.
+
+    /**
+     * @return Function that returns the global number of airports and the global number of flights
+     *
+     * @complexity O(N)
+     */
+
     int airportCount = 0;
     int flightCount = 0;
     for (auto v : getVertexSet()){
@@ -95,6 +97,15 @@ void FMSGraph::airportFlightCount() {                //i.
 }
 
 void FMSGraph::flightsPerAirport(std::string code) {            //ii.
+
+    /**
+     * @return Function that returns the global number of flights an airport has.
+     *
+     * @param code It takes the code of an airport
+     *
+     * @complexity O(N)
+     */
+
     Airport airport = findAirport(code);
     set<Airline> airlines;
     auto v = findVertex(airport);
@@ -325,6 +336,15 @@ void FMSGraph::numOfDestinationsAirport(std::string code)           //iv.
 
 }
 void FMSGraph::airportDestinations(std::string code) {      //v.
+
+    /**
+     * @return Returns the number of destinations an airport has connection to
+     *
+     * @param code The unique code of each airport
+     *
+     * @complexity o(n * log(n))
+     */
+
     set<std::string> airportCount;
     set<std::string> cityCount;
     set<std::string> countryCount;
@@ -341,6 +361,15 @@ void FMSGraph::airportDestinations(std::string code) {      //v.
 
 }
 void FMSGraph::reachableDestinationsInXStops(std::string code, int n) {          //vi.
+
+    /**
+     * @return returns the differents airports, countries and cities a airport can get to with an n amout of stops
+     *
+     * @param code, numOfStops The unique code of each airport and the number of stops you want to do
+     *
+     * @complexity O(V + E)
+     */
+
     set<std::string> airportCount;
     set<std::string> cityCount;
     set<std::string> countryCount;
@@ -466,7 +495,18 @@ void FMSGraph::topAirports(int numOfAirports)           //viii.
                   <<  " with a total of " << vectorAirports[i].second << " total flights." << std::endl;
     }
 }
-void FMSGraph::articulationDfs(Vertex<Airport>* v, set<Airport> & articulationAirports,stack<Airport> &s,int index){
+void FMSGraph::articulationDfs(Vertex<Airport>* v, set<Airport> & articulationAirports,stack<Airport> &s,int index){        //ix
+
+    // funçao auxiliar para a funçao essential airports
+
+    /**
+     * @return Populates a set with the found articulation points
+     *
+     * @param startVertex, emptySet, emptyStack, index it is the initial point, articulation point storage, pushed to the stack as they are visited, "tracker"
+     *
+     * @complexity O(V + E)
+     */
+
     v->setLow(index);
     v->setNum(index);
     index++;
@@ -497,6 +537,13 @@ void FMSGraph::articulationDfs(Vertex<Airport>* v, set<Airport> & articulationAi
 
 void FMSGraph::essentialAirports()
 {
+
+    /**
+     * @return Identifies the airports that are essential to the network’s circulation capability
+     *
+     * @complexity O(V + E)
+     */
+
     int index = 1;
     stack<Airport> s;
     set<Airport> articulationAirports;
@@ -526,6 +573,13 @@ void FMSGraph::connectedComponentsDfsVisit(Vertex<Airport>* v, set<std::string> 
     }
 }
 int FMSGraph::connectedComponents() {
+
+    /**
+     * @return returns the size and the number of connected components in the graph
+     *
+     * @complexity O(V + V + E)
+     */
+
     int counter = 0;
     set<std::string> airportCount;
     for (auto v : getVertexSet()) v->setVisited(false);
@@ -542,6 +596,17 @@ int FMSGraph::connectedComponents() {
 
 
 int FMSGraph::lowestNumberOfStops(Vertex<Airport>* source, Vertex<Airport>* destination) {
+
+    // auxiliar function of findAllShortestPathsBetweenAirports
+
+    /**
+     * @return returns the size and the number of connected components in the graph
+     *
+     * @param source,destination from where you want to start(Vertex<Airport>*) to where you want to go (Vertex<Airport>*)
+     *
+     * @complexity O(V + E)
+     */
+
     queue<Vertex<Airport>*> q;
     Airport destinationAirport = destination->getInfo();
     q.push(source);
@@ -568,6 +633,17 @@ int FMSGraph::lowestNumberOfStops(Vertex<Airport>* source, Vertex<Airport>* dest
 }
 
 set<vector<Vertex<Airport>*>> FMSGraph::findAllShortestPathsBetweenAirports(Vertex<Airport>* source, Vertex<Airport>* destination) {
+
+    // auxiliar function of bestFlightOption
+
+    /**
+     * @return returns a set<vector<Vertex<Airport>*>> that are all the shortest path from a vertex to another
+     *
+     * @param source,destination from where you want to start(Vertex<Airport>*) to where you want to go (Vertex<Airport>*)
+     *
+     * @complexity O(V + E)
+     */
+
     int d = lowestNumberOfStops(source, destination);
     set<vector<Vertex<Airport>*>> allPaths;
     queue<vector<Vertex<Airport>*>> q;
@@ -617,7 +693,7 @@ struct PathComparator {
     }
 };
 
-vector<vector<Flight>> FMSGraph::allPossibleFlightsPerTravel(vector<Vertex<Airport> *> path) {
+vector<vector<Flight>> FMSGraph::allPossibleFlightsPerTravel(vector<Vertex<Airport> *> path) {     //4
     vector<vector<Flight>> allPossibleFlights;
     set<Airline> airlines;
     for (int i = 0; i < path.size(); i++){
@@ -688,6 +764,13 @@ void FMSGraph::bestFlightOption(Vertex<Airport>* source , Vertex<Airport>* desti
 
 Vertex<Airport>* FMSGraph::cityOption()
 {
+
+    /**
+     * @return the choseen vertex
+     *
+     * @complexity O(V * E)
+     */
+
     std::string city;
     int choice;
     vector<Airport> cityAir;
@@ -727,6 +810,13 @@ Vertex<Airport>* FMSGraph::cityOption()
 
 Vertex<Airport>* FMSGraph::airportOption()
 {
+
+    /**
+     * @return the choseen vertex
+     *
+     * @complexity O(V * E)
+     */
+
     std::string airportname;
     vector<Airport> Air;
 
@@ -783,6 +873,14 @@ Vertex<Airport>* FMSGraph::airportOption()
 
 Vertex<Airport>* FMSGraph::coordinatesOption()
 {
+
+    /**
+     * @return the choseen vertex
+     *
+     * @complexity O(V * E)
+     */
+
+
     double longitude;
     double latitude;
     auto distancee = DBL_MAX;

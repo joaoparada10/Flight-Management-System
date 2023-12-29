@@ -942,6 +942,15 @@ vector<Airport> FMSGraph::cityAirports(std::string city)
 }
 
 void FMSGraph::addAirlinesToFilter(vector<Airline>& airlines) {
+
+    /**
+     * @return prints messages to the console indicating the status of each operation
+     *
+     * @param airlines function adds new airlines to this vector based on user input.
+     *
+     * @complexity O(A⋅L+V⋅E)
+     */
+
     vector<string> airlineCodes;
     string codes;
     cout << "Which airlines do you wish to add to your filter? Enter one or more airline codes (comma separated):" << endl;
@@ -971,6 +980,15 @@ void FMSGraph::addAirlinesToFilter(vector<Airline>& airlines) {
 }
 
 void FMSGraph::removeAirlinesFromFilter(vector<Airline>& airlines) {
+
+    /**
+     * @return The function removes airlines from this vector based on user input.
+     *
+     * @param airlines function removes airlines to this vector based on user input.
+     *
+     * @complexity O(A * F)
+     */
+
     vector<string> airlineCodes;
     string codes;
 
@@ -1002,6 +1020,15 @@ void FMSGraph::removeAirlinesFromFilter(vector<Airline>& airlines) {
 }
 
 FMSGraph FMSGraph::applyAirlineFilter(vector<Airline> selectedAirlines) {
+
+     /**
+     * @return returns the filtered graph with or without the selected airlines
+     *
+     * @param airlines  selected airlines to be included in the filtered graph.
+     *
+     * @complexity O(A * (V + E))
+     */
+
     FMSGraph filteredGraph;
     vector<string> airlineCodes;
     for (Airline a : selectedAirlines){

@@ -7,11 +7,15 @@
 #include "FMSGraph.h"
 using namespace std;
 
+Menu::Menu(FMSGraph globalGraph) {
+    this->globalGraph = globalGraph;
+}
+
 void Menu::getMainMenu(FMSGraph graph) {
     cout<<"------FSM------"<< endl;
     cout<<"1. Network Statistics"<< endl;
     cout<<"2. Search Flight Options"<< endl;
-    cout<<"3. Extras"<< endl;
+    cout<<"3. Filter"<< endl;
     cout<<"4. Quit"<< endl;
     cout<< "Select:"<< endl;
     int selected;
@@ -24,7 +28,7 @@ void Menu::getMainMenu(FMSGraph graph) {
             getFlightMenu(graph);
             break;
         case 3 :
-            getExtrasMenu(graph);
+            getFilterMenu(graph);
             break;
         case 4 :
             exit(0);
@@ -45,7 +49,7 @@ void Menu::getStatMenu(FMSGraph graph){
     cout<<"7. Maximum trip and corresponding pair of source-destination airports"<< endl;
     cout<<"8. Airport with the greatest air traffic capacity / with the greatest number of flights"<< endl;
     cout<<"9. Essential airports to the networks circulation capability "<< endl;
-    cout<<"10. Go back"<< endl;
+    cout<<"10. Back to main menu"<< endl;
     cout<< "Select:"<< endl;
     int selected;
     cin >> selected;
@@ -199,10 +203,49 @@ void Menu::getFlightMenu(FMSGraph graph){
     getMainMenu(graph);
 
 }
-void Menu::getExtrasMenu(FMSGraph graph){
-    cout<<"----Extras Menu----"<< endl;
-    //WIP
+void Menu::getFilterMenu(FMSGraph graph){
+    cout<<"----Filter Menu----"<< endl;
+    cout<<"1.Add Airlines to filter" << endl;
+    cout<<"2.Remove Airlines from filter" << endl;
+    cout<<"3.Reset filter" << endl;
+    cout<<"4.Set maximum number of airlines" << endl;
+    cout<<"5. Back to main menu" << endl;
+    int choice;
+    cin >> choice;
+    switch(choice){
+        case 1:
+            globalGraph.addAirlinesToFilter(airlines);
+            graph = globalGraph.applyAirlineFilter(airlines);
+            break;
+        case 2:
+            globalGraph.removeAirlinesFromFilter(airlines);
+            graph = globalGraph.applyAirlineFilter(airlines);
+            break;
+        case 3:
+            resetAirlineFilter();
+            graph = globalGraph;
+            break;
+        case 4:
+            getMainMenu(graph);
+        default:
+            cout << "Invalid choice. Please try again." << endl;
+            getFilterMenu(graph);
+    }
+    getFilterMenu(graph);
 }
+
+FMSGraph Menu::getGlobalGraph() {
+    return this->globalGraph;
+}
+
+FMSGraph Menu::getFilteredGraph() {
+    return this->filteredGraph;
+}
+
+void Menu::setFilteredGraph(FMSGraph filteredGraph) {
+    this->filteredGraph = filteredGraph;
+}
+
 
 
 

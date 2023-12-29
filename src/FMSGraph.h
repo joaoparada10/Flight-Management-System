@@ -22,8 +22,9 @@ public:
     void removeAirline(Airline& airline);
     void addAirport(Airport& airport);
     void removeAirport(const Airport& airport);
-    /*void addFlight(Flight& flight);
-    void removeFlight( Flight& flight);*/
+    void addFlight(Flight& flight);
+    void removeFlight( Flight& flight);
+    vector<Flight> getFlights (Airport source, Airport destination);
     Airport findAirport(std::string code);
     Airline getAirline(std::string code);
     void airportFlightCount();      //i.
@@ -44,13 +45,16 @@ public:
     void connectedComponentsDfsVisit(Vertex<Airport>* v, set<std::string> & airportCount);
     int lowestNumberOfStops(Vertex<Airport>* source, Vertex<Airport>* destination);
     set<vector<Vertex<Airport>*>> findAllShortestPathsBetweenAirports(Vertex<Airport>* source, Vertex<Airport>* destination);
-    void bestFlightOption(Vertex<Airport>* source , Vertex<Airport>* destination);
+    vector<vector<Flight>> allPossibleFlightsPerTravel(vector<Vertex<Airport>*> path);
+    void filterPerMinNumberOfAirlines(vector<vector<Flight>> allPossibleFlights);
+    void bestFlightOption(Vertex<Airport>* source , Vertex<Airport>* destination, int maxAirlines);
     vector<Airport> cityAirports(std::string city);
     Vertex<Airport>* cityOption();
     Vertex<Airport>* airportOption();
     Vertex<Airport>* coordinatesOption();
-    vector<Airline> getSelectedAirlines();
-    FMSGraph airlineFilter(vector<Airline> selectedAirlines);
+    void addAirlinesToFilter(vector<Airline>& airlines);
+    void removeAirlinesFromFilter(vector<Airline>& airlines);
+    FMSGraph applyAirlineFilter(vector<Airline> selectedAirlines);
 };
 
 

@@ -1,5 +1,5 @@
-/*//
-// Created by jonas on 17/12/2023.
+//
+// Created by jonas on 29/12/2023.
 //
 
 #ifndef AEDPROJECT2_FLIGHT_H
@@ -23,4 +23,4 @@ public:
 };
 
 
-#endif //AEDPROJECT2_FLIGHT_H*/
+#endif //AEDPROJECT2_FLIGHT_H

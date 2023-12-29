@@ -10,6 +10,7 @@ Airline::Airline(std::string code, std::string name, std::string callsign, std::
     this->name = name;
     this->callsign = callsign;
     this->country = country;
+    this->count = 0;
 }
 
 std::string Airline::getCode()
@@ -38,5 +39,14 @@ bool Airline::operator==(const Airline& other) const
 }
 
 bool Airline::operator<(const Airline &other) const {
+    if (this->count != other.count) return this->count < other.count;
     return this->code < other.code;
+}
+
+int Airline::getCount() {
+    return this->count;
+}
+
+void Airline::setCount(int count) {
+    this->count = count;
 }

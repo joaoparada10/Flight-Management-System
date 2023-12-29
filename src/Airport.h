@@ -30,6 +30,7 @@ public:
     double getLongitude();
     bool operator==(const Airport& other) const;
     vector<Airport> travelPath(Airport otherAirport);
+    Airline getFlightAirline(Airport other);
 
 
     bool operator<(const Airport& other) const;

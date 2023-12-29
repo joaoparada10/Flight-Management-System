@@ -11,7 +11,7 @@
 #include <list>
 #include <unordered_set>
 #include <unordered_map>
-#include <string>
+#include "Flight.h"
 
 using namespace std;
 
@@ -33,7 +33,7 @@ class Vertex {
     int low;               // auxiliary field
     int distance;
 
-    void addEdge(Vertex<T> *dest, string w);
+    void addEdge(Vertex<T> *dest, Flight w);
     bool removeEdgeTo(Vertex<T> *d);
 public:
     Vertex(T in);
@@ -69,14 +69,14 @@ public:
 template <class T>
 class Edge {
     Vertex<T> * dest;      // destination vertex
-    string weight;
+    Flight weight;
     bool visited;
 public:
-    Edge(Vertex<T> *d, string w);
+    Edge(Vertex<T> *d, Flight w);
     Vertex<T> *getDest() const;
     void setDest(Vertex<T> *dest);
-    string getWeight() const;
-    void setWeight(string weight);
+    Flight getWeight() const;
+    void setWeight(Flight weight);
     bool isVisited() const;
     void setVisited(bool v);
     friend class Graph<T>;
@@ -98,7 +98,7 @@ public:
     int getNumVertex() const;
     bool addVertex(const T &in);
     bool removeVertex(const T &in);
-    bool addEdge(const T &sourc, const T &dest, string w);
+    bool addEdge(const T &sourc, const T &dest, Flight w);
     bool removeEdge(const T &sourc, const T &dest);
     int getIndex() const;
     void setIndex(int _index_);
@@ -117,7 +117,7 @@ template <class T>
 Vertex<T>::Vertex(T in): info(in) {}
 
 template <class T>
-Edge<T>::Edge(Vertex<T> *d, string w): dest(d), weight(w) {}
+Edge<T>::Edge(Vertex<T> *d, Flight w): dest(d), weight(w) {}
 
 template <class T>
 int Graph<T>::getIndex() const {
@@ -168,12 +168,12 @@ void Edge<T>::setDest(Vertex<T> *d) {
 }
 
 template<class T>
-string Edge<T>::getWeight() const {
+Flight Edge<T>::getWeight() const {
     return weight;
 }
 
 template<class T>
-void Edge<T>::setWeight(string weight) {
+void Edge<T>::setWeight(Flight weight) {
     Edge::weight = weight;
 }
 template<class T>
@@ -277,7 +277,7 @@ bool Graph<T>::addVertex(const T &in) {
  * Returns true if successful, and false if the source or destination vertex does not exist.
  */
 template <class T>
-bool Graph<T>::addEdge(const T &sourc, const T &dest, string w) {
+bool Graph<T>::addEdge(const T &sourc, const T &dest, Flight w) {
     auto v1 = findVertex(sourc);
     auto v2 = findVertex(dest);
     if (v1 == NULL || v2 == NULL)
@@ -291,7 +291,7 @@ bool Graph<T>::addEdge(const T &sourc, const T &dest, string w) {
  * with a given destination vertex (d) and edge weight (w).
  */
 template <class T>
-void Vertex<T>::addEdge(Vertex<T> *d, string w) {
+void Vertex<T>::addEdge(Vertex<T> *d, Flight w) {
     adj.push_back(Edge<T>(d, w));
 }
 

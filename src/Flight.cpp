@@ -1,9 +1,9 @@
-/*//
-// Created by jonas on 17/12/2023.
+//
+// Created by jonas on 29/12/2023.
 //
 
 #include "Flight.h"
-#include <string>
+#include "Airport.h"
 
 Flight::Flight(Airport Source, Airport Target, Airline airline)
         : source(Source), target(Target), airLine(airline) {}
@@ -23,4 +23,4 @@ Airport Flight::getTarget()
 {
     return this->target;
 }
-*/
+

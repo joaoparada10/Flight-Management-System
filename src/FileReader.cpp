@@ -1,4 +1,5 @@
 #include "FileReader.h"
+#include "Flight.h"
 
 void FileReader::airlineMap(const std::string &filename,FMSGraph &ourGraph)
 {
@@ -79,7 +80,9 @@ void FileReader::addFlights(const std::string &filename, FMSGraph &ourGraph)
                 Airport sourceAirport = ourGraph.findAirport(Source);
                 Airport targetAirport = ourGraph.findAirport(Target);
                 Airline airline = ourGraph.getAirline(AirlineCode);
-                ourGraph.addEdge(sourceAirport,targetAirport,AirlineCode);
+
+                Flight newFlight = Flight(sourceAirport,targetAirport,airline);
+                ourGraph.addFlight(newFlight);
             }
         }
 

@@ -7,11 +7,23 @@
 #include "FMSGraph.h"
 
 class Menu {
+private:
+    FMSGraph globalGraph;
+    FMSGraph filteredGraph;
+    vector<Airline> airlines;
 public:
+    Menu(FMSGraph globalGraph);
     void getMainMenu(FMSGraph graph);
     void getFlightMenu(FMSGraph graph);
     void getStatMenu(FMSGraph graph);
-    void getExtrasMenu(FMSGraph graph);
+    void getFilterMenu(FMSGraph graph);
+    FMSGraph getGlobalGraph();
+    FMSGraph getFilteredGraph();
+    void setFilteredGraph(FMSGraph filteredGraph);
+    void resetAirlineFilter() {
+        airlines.clear();
+    }
+
 };
 
 

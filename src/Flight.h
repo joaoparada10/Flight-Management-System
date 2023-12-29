@@ -12,7 +12,7 @@ class Flight {
 private:
     Airport source;
     Airport target;
-    Airline airLine;
+    Airline airline;
 
 public:
     Flight(Airport Source, Airport Target , Airline airline);

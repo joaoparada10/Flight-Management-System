@@ -56,12 +56,6 @@ bool Airport::operator==(const Airport& other) const {
     return this->code == other.code;
 }
 
-
-vector<Airport> Airport::travelPath(Airport otherAirport)
-{
-
-}
-
 bool Airport::operator<(const Airport &other) const {
     return this->code < other.code;
 }

@@ -6,8 +6,6 @@
 #define AEDPROJECT2_FMSGRAPH_H
 
 #include "Graph.h"
-#include "Airport.h"
-#include "Airline.h"
 #include "Flight.h"
 #include <unordered_map>
 #include <set>
@@ -46,8 +44,9 @@ public:
     int lowestNumberOfStops(Vertex<Airport>* source, Vertex<Airport>* destination);
     set<vector<Vertex<Airport>*>> findAllShortestPathsBetweenAirports(Vertex<Airport>* source, Vertex<Airport>* destination);
     vector<vector<Flight>> allPossibleFlightsPerTravel(vector<Vertex<Airport>*> path);
-    void filterPerMinNumberOfAirlines(vector<vector<Flight>> allPossibleFlights);
-    void bestFlightOption(Vertex<Airport>* source , Vertex<Airport>* destination, int maxAirlines);
+    vector<Airline> filterPerMinNumberOfAirlines(vector<vector<Flight>> allPossibleFlights);
+    void bestFlightOptions(Vertex<Airport>* source , Vertex<Airport>* destination);
+    void bestFlightOptionsWithFilter(Vertex<Airport>* source , Vertex<Airport>* destination);
     vector<Airport> cityAirports(std::string city);
     Vertex<Airport>* cityOption();
     Vertex<Airport>* airportOption();

@@ -12,6 +12,7 @@ Airline::Airline(std::string code, std::string name, std::string callsign, std::
     this->country = country;
     this->count = 0;
 }
+Airline::Airline() = default;
 
 std::string Airline::getCode()
 {
@@ -50,3 +51,13 @@ int Airline::getCount() {
 void Airline::setCount(int count) {
     this->count = count;
 }
+
+void Airline::addFlight(Flight* flight) {
+    this->flights.push_back(flight);
+}
+
+std::vector<Flight*> Airline::getFlights() {
+    return this->flights;
+}
+
+

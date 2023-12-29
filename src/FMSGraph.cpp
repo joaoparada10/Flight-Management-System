@@ -635,33 +635,67 @@ vector<vector<Flight>> FMSGraph::allPossibleFlightsPerTravel(vector<Vertex<Airpo
     return allPossibleFlights;
 }
 
-void filterPerMinNumberOfAirlines(vector<vector<Flight>> allPossibleFlights){
+vector<Airline>FMSGraph::filterPerMinNumberOfAirlines(vector<vector<Flight>> allPossibleFlights){
     set<Airline> airlines;
-    for (vector flights : allPossibleFlights){
-        for (Flight flight : flights){
-            flight.getAirline().setCount(0);
-            airlines.insert(flight.getAirline());
+    vector<Airline> mostCommonAirlines;
+    int remainingFlights = allPossibleFlights.size();
+    while(remainingFlights != 0) {
+        int maxCount = 0;
+        for (auto flights: allPossibleFlights) {
+                for (Flight flight: flights) {
+                    flight.getAirline().setCount(0);
+                    airlines.insert(flight.getAirline());
+                }
         }
-    }
-    for (vector flights : allPossibleFlights){
-        for (Flight flight : flights){
-            flight.getAirline().setCount(flight.getAirline().getCount()+1);
+        for (auto flights: allPossibleFlights) {
+                for (Flight flight: flights) {
+                    flight.getAirline().setCount(flight.getAirline().getCount() + 1);
+                }
         }
+        for (auto airline: airlines) {
+            if (airline.getCount() > maxCount) {
+                maxCount = airline.getCount();
+            }
+        }
+        for (auto airline: airlines) {
+            if (airline.getCount() == maxCount) {
+                mostCommonAirlines.push_back(airline);
+            }
+        }
+        for (auto itr = allPossibleFlights.begin(); itr != allPossibleFlights.end();) {
+            auto tempItr = next(itr);
+            for (auto it = itr->begin(); it != itr->end();it++) {
+                if(find(mostCommonAirlines.begin(),mostCommonAirlines.end(),it->getAirline()) != mostCommonAirlines.end()){
+                    itr = allPossibleFlights.erase(itr);
+                    break;
+                }
+            }
+            if (itr != tempItr) itr++;
+        }
+        remainingFlights = remainingFlights - maxCount;
     }
-    for (auto airline : airlines){
-
-    }
-
+    return mostCommonAirlines;
 }
 
-void FMSGraph::bestFlightOption(Vertex<Airport>* source , Vertex<Airport>* destination, int maxAirlines)
+void FMSGraph::bestFlightOptionsWithFilter(Vertex<Airport>* source , Vertex<Airport>* destination)
 {
     set<vector<Vertex<Airport>*>> possiblePaths;
+    vector<vector<Flight>> allFlightsPath;
+    vector<Airline> airlines;
+    FMSGraph filteredGraph;
     int count = 1;
     possiblePaths = findAllShortestPathsBetweenAirports(source,destination);
     set<vector<Vertex<Airport>*>,PathComparator> sortedPaths;
+    for (auto path : possiblePaths) {
+        allFlightsPath = allPossibleFlightsPerTravel(path);
+        vector<Airline> temp = filterPerMinNumberOfAirlines(allFlightsPath);
+        airlines.insert(airlines.end(),temp.begin(),temp.end());
+    }
+    airlines.erase(unique(airlines.begin(),airlines.end()), airlines.end());
+    filteredGraph = applyAirlineFilter(airlines);
+    possiblePaths = filteredGraph.findAllShortestPathsBetweenAirports(source,destination);
     for (auto p : possiblePaths){
-        if (maxAirlines == 0 || differentAirlinesUsed(p) <= maxAirlines) sortedPaths.insert(p);
+        sortedPaths.insert(p);
     }
 
     std::cout << "Your possible path(s) to your destination is/are (ordered by total travel distance): " << std::endl;
@@ -670,21 +704,69 @@ void FMSGraph::bestFlightOption(Vertex<Airport>* source , Vertex<Airport>* desti
     {
         std::cout << "Path " << count << " - (total distance: " << calculateFullDistance(path) << "KM) " << std::endl;
 
-        for(auto airport : path)
+        for(int i = 0; i < path.size()-1; i++)
         {
-            if (airport->getInfo().getCode() != destination->getInfo().getCode()) {
-                Airline flightAirline;
-                std::cout << airport->getInfo().getName() << ", " << airport->getInfo().getCountry() << "("
-                          << airport->getInfo().getCode() << ") " << " -> ";
+            std::cout << path[i]->getInfo().getName() << ", " << path[i]->getInfo().getCountry() << "("
+            << path[i]->getInfo().getCode() << ") -> " << path[i+1]->getInfo().getName() << ", " <<
+            path[i+1]->getInfo().getCountry() << "(" << path[i+1]->getInfo().getCode() << ")" << std::endl;
+
+            vector<Flight> availableFlights;
+            for ( auto e : path[i]->getAdj()){
+                if (e.getDest() == path[i+1]) availableFlights.push_back(e.getWeight());
             }
-            else {
-                std::cout << airport->getInfo().getName() << ", " << airport->getInfo().getCountry() << "(" << airport->getInfo().getCode() << ") ";
+            std::cout << "Available Airlines for this flight: ";
+            for (int j = 0; j < availableFlights.size();j++){
+                Airline airline = availableFlights[j].getAirline();
+                if (j == availableFlights.size()-1) std::cout << airline.getName() << "(" << airline.getCode() << ")";
+                else std::cout << airline.getName() << "(" << airline.getCode() << "), ";
             }
+            std::cout << std::endl;
+            std::cout << std::endl;
         }
         std::cout << std::endl;
         count++;
     }
 }
+void FMSGraph::bestFlightOptions(Vertex<Airport>* source , Vertex<Airport>* destination)
+{
+    set<vector<Vertex<Airport>*>> possiblePaths;
+    int count = 1;
+    possiblePaths = findAllShortestPathsBetweenAirports(source,destination);
+    set<vector<Vertex<Airport>*>,PathComparator> sortedPaths;
+    for (auto p : possiblePaths){
+        sortedPaths.insert(p);
+    }
+
+    std::cout << "Your possible path(s) to your destination is/are (ordered by total travel distance): " << std::endl;
+
+    for(auto path : sortedPaths)
+    {
+        std::cout << "Path " << count << " - (total distance: " << calculateFullDistance(path) << "KM) " << std::endl;
+
+        for(int i = 0; i < path.size()-1; i++)
+        {
+            std::cout << path[i]->getInfo().getName() << ", " << path[i]->getInfo().getCountry() << "("
+                      << path[i]->getInfo().getCode() << ") -> " << path[i+1]->getInfo().getName() << ", " <<
+                      path[i+1]->getInfo().getCountry() << "(" << path[i+1]->getInfo().getCode() << ")" << std::endl;
+
+            vector<Flight> availableFlights;
+            for ( auto e : path[i]->getAdj()){
+                if (e.getDest() == path[i+1]) availableFlights.push_back(e.getWeight());
+            }
+            std::cout << "Available Airlines for this flight: ";
+            for (int j = 0; j < availableFlights.size();j++){
+                Airline airline = availableFlights[j].getAirline();
+                if (j == availableFlights.size()-1) std::cout << airline.getName() << "(" << airline.getCode() << ")";
+                else std::cout << airline.getName() << "(" << airline.getCode() << "), ";
+            }
+            std::cout << std::endl;
+            std::cout << std::endl;
+        }
+        std::cout << std::endl;
+        count++;
+    }
+}
+
 
 Vertex<Airport>* FMSGraph::cityOption()
 {

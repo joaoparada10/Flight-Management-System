@@ -199,7 +199,16 @@ void Menu::getFlightMenu(FMSGraph graph){
             cout << "Invalid choice. Please try again." << endl;
             getFlightMenu(graph);
     }
-    graph.bestFlightOption(source , dest );
+    cout <<"Do you wish to minimize the number of different airlines in your travel?(y/n)" << endl;
+    char choice3;
+    cin>>choice3;
+    switch(choice3) {
+        case 'n':
+            graph.bestFlightOptions(source, dest);
+            break;
+        case 'y':
+            graph.bestFlightOptionsWithFilter(source,dest);
+    }
     getMainMenu(graph);
 
 }
@@ -208,8 +217,7 @@ void Menu::getFilterMenu(FMSGraph graph){
     cout<<"1.Add Airlines to filter" << endl;
     cout<<"2.Remove Airlines from filter" << endl;
     cout<<"3.Reset filter" << endl;
-    cout<<"4.Set maximum number of airlines" << endl;
-    cout<<"5. Back to main menu" << endl;
+    cout<<"4. Back to main menu" << endl;
     int choice;
     cin >> choice;
     switch(choice){

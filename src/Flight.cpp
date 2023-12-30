@@ -3,15 +3,13 @@
 //
 
 #include "Flight.h"
-#include "Airport.h"
 
 Flight::Flight(Airport Source, Airport Target, Airline airline)
-        : source(Source), target(Target), airLine(airline) {}
+        : source(Source), target(Target), airline(airline) {}
 
-
-Airline Flight::getAirline()
+Airline & Flight::getAirline()
 {
-    return this->airLine;
+    return this->airline;
 }
 
 Airport Flight::getSource()
@@ -23,4 +21,6 @@ Airport Flight::getTarget()
 {
     return this->target;
 }
+
+
 

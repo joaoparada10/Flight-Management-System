@@ -6,6 +6,8 @@
 #define AEDPROJECT2_AIRLINE_H
 
 #include <string>
+#include <vector>
+class Flight;
 
 class Airline {
 private:
@@ -14,15 +16,13 @@ private:
     std::string callsign;
     std::string country;
     int count;  //auxiliary; number of airline flights per travel
-
 public:
     Airline(std::string code, std::string name, std::string callsign, std::string country);
+    Airline(const Airline& other);
     std::string getCode();
     std::string getName();
     std::string getCallsign();
     std::string getCountry();
-    int getCount();
-    void setCount(int count);
     bool operator==(const Airline& other) const;
     bool operator<(const Airline& other) const;
 };

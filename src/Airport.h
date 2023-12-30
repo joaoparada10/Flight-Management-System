@@ -6,7 +6,6 @@
 #define AEDPROJECT2_AIRPORT_H
 #include <string>
 #include <set>
-#include "Airline.h"
 #include <vector>
 
 using namespace std;
@@ -22,6 +21,7 @@ private:
 
 public:
     Airport(std::string code, std::string name, std::string city, std::string country, double latitude, double longitude);
+    Airport();
     std::string getCode();
     std::string getName();
     std::string getCity();
@@ -29,10 +29,6 @@ public:
     double getLatitude();
     double getLongitude();
     bool operator==(const Airport& other) const;
-    vector<Airport> travelPath(Airport otherAirport);
-    Airline getFlightAirline(Airport other);
-
-
     bool operator<(const Airport& other) const;
 };
 

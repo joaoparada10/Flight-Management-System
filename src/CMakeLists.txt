@@ -3,12 +3,14 @@ set(SOURCE_FILES
         Airport.cpp
         FileReader.cpp
         FMSGraph.cpp
+        Flight.cpp
         Menu.cpp
         main.cpp)
 
 set(HEADER_FILES
         Airline.h
         Airport.h
+        Flight.h
         FileReader.h
         FMSGraph.h
         Menu.h

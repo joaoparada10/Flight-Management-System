@@ -1,5 +1,4 @@
 #include "FileReader.h"
-#include "Flight.h"
 
 void FileReader::airlineMap(const std::string &filename,FMSGraph &ourGraph)
 {

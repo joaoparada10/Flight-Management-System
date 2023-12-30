@@ -3,6 +3,7 @@
 //
 
 #include "Airline.h"
+#include <functional>
 
 Airline::Airline(std::string code, std::string name, std::string callsign, std::string country)
 {
@@ -12,6 +13,13 @@ Airline::Airline(std::string code, std::string name, std::string callsign, std::
     this->country = country;
     this->count = 0;
 }
+Airline::Airline(const Airline& other) {
+    this->code = other.code;
+    this->name = other.name;
+    this->callsign = other.callsign;
+    this->country = other.country;
+}
+
 
 std::string Airline::getCode()
 {
@@ -43,10 +51,3 @@ bool Airline::operator<(const Airline &other) const {
     return this->code < other.code;
 }
 
-int Airline::getCount() {
-    return this->count;
-}
-
-void Airline::setCount(int count) {
-    this->count = count;
-}

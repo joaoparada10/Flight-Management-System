@@ -7,8 +7,7 @@
 Flight::Flight(Airport Source, Airport Target, Airline airline)
         : source(Source), target(Target), airline(airline) {}
 
-
-Airline Flight::getAirline()
+Airline & Flight::getAirline()
 {
     return this->airline;
 }
@@ -22,4 +21,6 @@ Airport Flight::getTarget()
 {
     return this->target;
 }
+
+
 

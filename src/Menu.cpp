@@ -217,7 +217,7 @@ void Menu::getFilterMenu(FMSGraph graph){
     cout<<"1.Add Airlines to filter" << endl;
     cout<<"2.Remove Airlines from filter" << endl;
     cout<<"3.Reset filter" << endl;
-    cout<<"5. Back to main menu" << endl;
+    cout<<"4. Back to main menu" << endl;
     int choice;
     cin >> choice;
     switch(choice){
@@ -234,8 +234,6 @@ void Menu::getFilterMenu(FMSGraph graph){
             graph = globalGraph;
             break;
         case 4:
-
-        case 5:
             getMainMenu(graph);
         default:
             cout << "Invalid choice. Please try again." << endl;

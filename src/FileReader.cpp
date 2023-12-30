@@ -81,8 +81,6 @@ void FileReader::addFlights(const std::string &filename, FMSGraph &ourGraph)
                 Airline airline = ourGraph.getAirline(AirlineCode);
 
                 Flight newFlight = Flight(sourceAirport,targetAirport,airline);
-                auto ptr = &newFlight;
-                airline.addFlight(ptr);
                 ourGraph.addFlight(newFlight);
             }
         }

@@ -18,7 +18,7 @@ public:
     Flight(Airport Source, Airport Target , Airline airline);
     Airport getSource();
     Airport getTarget();
-    Airline getAirline();
+    Airline & getAirline();
 
 };
 

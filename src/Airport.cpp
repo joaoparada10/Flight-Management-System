@@ -60,3 +60,5 @@ bool Airport::operator<(const Airport &other) const {
     return this->code < other.code;
 }
 
+Airport::Airport() = default;
+

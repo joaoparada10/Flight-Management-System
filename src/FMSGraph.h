@@ -22,7 +22,6 @@ public:
     void removeAirport(const Airport& airport);
     void addFlight(Flight& flight);
     void removeFlight( Flight& flight);
-    vector<Flight> getFlights (Airport source, Airport destination);
     Airport findAirport(std::string code);
     Airline getAirline(std::string code);
     void airportFlightCount();      //i.
@@ -44,9 +43,9 @@ public:
     int lowestNumberOfStops(Vertex<Airport>* source, Vertex<Airport>* destination);
     set<vector<Vertex<Airport>*>> findAllShortestPathsBetweenAirports(Vertex<Airport>* source, Vertex<Airport>* destination);
     vector<vector<Flight>> allPossibleFlightsPerTravel(vector<Vertex<Airport>*> path);
-    vector<Airline> filterPerMinNumberOfAirlines(vector<vector<Flight>> allPossibleFlights);
+    int filterPerMinNumberOfAirlines(vector<vector<Flight>>& allPossibleFlights);
     void bestFlightOptions(Vertex<Airport>* source , Vertex<Airport>* destination);
-    void bestFlightOptionsWithFilter(Vertex<Airport>* source , Vertex<Airport>* destination);
+    void bestFlightOptionsWithFilter(Vertex<Airport> *source, Vertex<Airport> *destination);
     vector<Airport> cityAirports(std::string city);
     Vertex<Airport>* cityOption();
     Vertex<Airport>* airportOption();

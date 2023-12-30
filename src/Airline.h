@@ -16,18 +16,13 @@ private:
     std::string callsign;
     std::string country;
     int count;  //auxiliary; number of airline flights per travel
-    std::vector<Flight*> flights;
 public:
     Airline(std::string code, std::string name, std::string callsign, std::string country);
-    Airline();
+    Airline(const Airline& other);
     std::string getCode();
     std::string getName();
     std::string getCallsign();
     std::string getCountry();
-    void addFlight(Flight* flight);
-    std::vector<Flight*> getFlights();
-    int getCount();
-    void setCount(int count);
     bool operator==(const Airline& other) const;
     bool operator<(const Airline& other) const;
 };

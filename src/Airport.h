@@ -21,6 +21,7 @@ private:
 
 public:
     Airport(std::string code, std::string name, std::string city, std::string country, double latitude, double longitude);
+    Airport();
     std::string getCode();
     std::string getName();
     std::string getCity();

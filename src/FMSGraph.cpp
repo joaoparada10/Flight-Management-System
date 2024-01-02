@@ -84,7 +84,7 @@ void FMSGraph::airportFlightCount() {                //i.
     /**
      * @return Function that returns the global number of airports and the global number of flights
      *
-     * @complexity O(N)
+     * Time Complexity O(N)
      */
 
     int airportCount = 0;
@@ -104,7 +104,7 @@ void FMSGraph::flightsPerAirport(std::string code) {            //ii.
      *
      * @param code It takes the code of an airport
      *
-     * @complexity O(N)
+     * Time Complexity O(N)
      */
 
     Airport airport = findAirport(code);
@@ -212,7 +212,7 @@ void FMSGraph::flightsPerCity(std::string city)             //iii.
      *
      * @param city the name of the city we want to know how many fights has
      *
-     * @complexity o(n)
+     * Time Complexity O(n)
      */
 
     std::string city2 = cityTransformer(city);
@@ -238,7 +238,7 @@ void FMSGraph::flighsPerAirline(std::string airline)                //iii.
      *
      * @param airline the code of the airline that we want to know how many fights does
      *
-     * @complexity o(n * m)
+     * Time Complexity O(n * m)
      */
 
     int numOfFlights = 0;
@@ -264,7 +264,7 @@ void FMSGraph::numOfDestinationsCity(std::string city)            //iv.
      *
      * @param city the name of the departure city
      *
-     * @complexity o(n * (m + k))
+     * Time Complexity O(n * (m + k))
      */
 
     std::string city2 = cityTransformer(city);
@@ -301,7 +301,7 @@ void FMSGraph::numOfDestinationsAirport(std::string code)           //iv.
      *
      * @param code The unique code of each airport
      *
-     * @complexity o(n * (m + k))
+     * Time Complexity O(n * (m + k))
      */
     std::string code2 = code;
     std::transform(code2.begin(), code2.end(), code2.begin(), ::toupper);
@@ -343,7 +343,7 @@ void FMSGraph::airportDestinations(std::string code) {      //v.
      *
      * @param code The unique code of each airport
      *
-     * @complexity o(n * log(n))
+     * Time Complexity O(n * log(n))
      */
 
     set<std::string> airportCount;
@@ -368,7 +368,7 @@ void FMSGraph::reachableDestinationsInXStops(std::string code, int n) {         
      *
      * @param code, numOfStops The unique code of each airport and the number of stops you want to do
      *
-     * @complexity O(V + E)
+     * Time Complexity O(V + E)
      */
 
     set<std::string> airportCount;
@@ -464,7 +464,7 @@ void FMSGraph::topAirports(int numOfAirports)           //viii.
      *
      * @param numOfAirports the top number of airpots we want to get
      *
-     * @complexity O(v + e + v * log(v))
+     * Time Complexity O(v + e + v * log(v))
      */
 
     std::unordered_map<std::string, int> airportFlightsCount;
@@ -508,7 +508,7 @@ void FMSGraph::articulationDfs(Vertex<Airport>* v, set<Airport> & articulationAi
      *
      * @param startVertex, emptySet, emptyStack, index it is the initial point, articulation point storage, pushed to the stack as they are visited, "tracker"
      *
-     * @complexity O(V + E)
+     * Time Complexity O(V + E)
      */
 
     v->setLow(index);
@@ -545,7 +545,7 @@ void FMSGraph::essentialAirports()
     /**
      * @return Identifies the airports that are essential to the network’s circulation capability
      *
-     * @complexity O(V + E)
+     * Time Complexity O(V + E)
      */
 
     int index = 1;
@@ -581,7 +581,7 @@ int FMSGraph::connectedComponents() {
     /**
      * @return returns the size and the number of connected components in the graph
      *
-     * @complexity O(V + V + E)
+     * Time Complexity O(V + V + E)
      */
 
     int counter = 0;
@@ -608,7 +608,7 @@ int FMSGraph::lowestNumberOfStops(Vertex<Airport>* source, Vertex<Airport>* dest
      *
      * @param source,destination from where you want to start(Vertex<Airport>*) to where you want to go (Vertex<Airport>*)
      *
-     * @complexity O(V + E)
+     * Time Complexity O(V + E)
      */
 
     queue<Vertex<Airport>*> q;
@@ -645,7 +645,7 @@ set<vector<Vertex<Airport>*>> FMSGraph::findAllShortestPathsBetweenAirports(Vert
      *
      * @param source,destination from where you want to start(Vertex<Airport>*) to where you want to go (Vertex<Airport>*)
      *
-     * @complexity O(V + E)
+     * Time Complexity O(V + E)
      */
 
     int d = lowestNumberOfStops(source, destination);
@@ -834,9 +834,9 @@ Vertex<Airport>* FMSGraph::cityOption()
 {
 
     /**
-     * @return the choseen vertex
+     * @return the chosen vertex
      *
-     * @complexity O(V * E)
+     * Time Complexity O(V * E)
      */
 
     std::string city;
@@ -880,9 +880,9 @@ Vertex<Airport>* FMSGraph::airportOption()
 {
 
     /**
-     * @return the choseen vertex
+     * @return the chosen vertex
      *
-     * @complexity O(V * E)
+     * Time Complexity O(V * E)
      */
 
     std::string airportname;
@@ -943,9 +943,9 @@ Vertex<Airport>* FMSGraph::coordinatesOption()
 {
 
     /**
-     * @return the choseen vertex
+     * @return the chosen vertex
      *
-     * @complexity O(V * E)
+     * Time Complexity O(V * E)
      */
 
 
@@ -1016,7 +1016,7 @@ void FMSGraph::addAirlinesToFilter(vector<Airline>& airlines) {
      *
      * @param airlines function adds new airlines to this vector based on user input.
      *
-     * @complexity O(A⋅L+V⋅E)
+     * Time Complexity O(A⋅L+V⋅E)
      */
 
     vector<string> airlineCodes;
@@ -1054,7 +1054,7 @@ void FMSGraph::removeAirlinesFromFilter(vector<Airline>& airlines) {
      *
      * @param airlines function removes airlines to this vector based on user input.
      *
-     * @complexity O(A * F)
+     * Time Complexity O(A * F)
      */
 
     vector<string> airlineCodes;
@@ -1094,7 +1094,7 @@ FMSGraph FMSGraph::applyAirlineFilter(vector<Airline> selectedAirlines) {
      *
      * @param airlines  selected airlines to be included in the filtered graph.
      *
-     * @complexity O(A * (V + E))
+     * Time Complexity O(A * (V + E))
      */
 
     FMSGraph filteredGraph;

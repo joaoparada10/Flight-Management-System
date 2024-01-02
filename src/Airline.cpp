@@ -2,6 +2,11 @@
 // Created by jonas on 17/12/2023.
 //
 
+/**
+@file Airline.cpp
+@brief Implementation of the Airline class methods
+*/
+
 #include "Airline.h"
 #include <functional>
 

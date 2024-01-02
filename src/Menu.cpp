@@ -2,6 +2,11 @@
 // Created by António Cunha on 26/12/2023.
 //
 
+/**
+@file Menu.cpp
+@brief Implementation of the Menu class methods
+*/
+
 #include "Menu.h"
 #include <iostream>
 #include "FMSGraph.h"

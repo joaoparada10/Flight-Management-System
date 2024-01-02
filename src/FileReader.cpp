@@ -1,3 +1,8 @@
+/**
+@file Filereader.cpp
+@brief Implementation of the Filereader class methods
+*/
+
 #include "FileReader.h"
 
 void FileReader::airlineMap(const std::string &filename,FMSGraph &ourGraph)

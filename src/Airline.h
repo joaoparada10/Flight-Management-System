@@ -2,6 +2,11 @@
 // Created by jonas on 17/12/2023.
 //
 
+/**
+ * @file Airline.h
+ * @brief Header file for the Airline class
+ */
+
 #ifndef AEDPROJECT2_AIRLINE_H
 #define AEDPROJECT2_AIRLINE_H
 

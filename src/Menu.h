@@ -2,6 +2,12 @@
 // Created by António Cunha on 26/12/2023.
 //
 
+
+/**
+ * @file Flight.h
+ * @brief Header file for the Flight class
+ */
+
 #ifndef PROJETO2_MENU_H
 #define PROJETO2_MENU_H
 #include "FMSGraph.h"

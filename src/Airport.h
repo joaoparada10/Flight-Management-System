@@ -2,6 +2,11 @@
 // Created by jonas on 17/12/2023.
 //
 
+/**
+ * @file Airport.h
+ * @brief Header file for the Airport class
+ */
+
 #ifndef AEDPROJECT2_AIRPORT_H
 #define AEDPROJECT2_AIRPORT_H
 #include <string>

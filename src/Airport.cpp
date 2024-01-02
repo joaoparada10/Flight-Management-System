@@ -2,6 +2,12 @@
 // Created by jonas on 17/12/2023.
 //
 
+/**
+
+@file Airport.cpp
+@brief Implementation of the Airport class methods
+*/
+
 #include "Airport.h"
 #include <string>
 #include <complex>

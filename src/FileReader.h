@@ -4,7 +4,7 @@
 
 /**
  * @file Filereader.h
- * @brief Header file for the Airline class which is respomsible
+ * @brief Header file for the Filereader class which is responsible
  * for the input of information about the airports, airlines and its connections
  */
 

@@ -1067,7 +1067,7 @@ FILTER_SOURCE_PATTERNS =
 # (index.html). This can be useful if you have a project on for instance GitHub
 # and want to reuse the introduction page also for the doxygen output.
 
-USE_MDFILE_AS_MAINPAGE = mainpage.cpp
+USE_MDFILE_AS_MAINPAGE = 
 
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing
@@ -2343,7 +2343,7 @@ EXTERNAL_GROUPS        = YES
 # be listed.
 # The default value is: YES.
 
-EXTERNAL_PAGES         = YES
+EXTERNAL_PAGES         = NO
 
 #---------------------------------------------------------------------------
 # Configuration options related to the dot tool

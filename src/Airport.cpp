@@ -52,12 +52,6 @@ double Airport::getLongitude()
     return this->longitude;
 }
 
-double toRadians(double degree) // funçao auxiliar para a funçao de cima
-{
-    return degree * (M_PI / 180.0);
-}
-
-// Inside the Airport class definition
 bool Airport::operator==(const Airport& other) const {
     return this->code == other.code;
 }

@@ -147,7 +147,7 @@ string cityTransformer(string city)
     while (iss >> word) {
         word[0] = std::toupper(word[0]);
         if (!result.empty()) {
-            result.append(" ");  // Add space only if there is a previous word
+            result.append(" ");
         }
         result.append(word);
     }
@@ -157,7 +157,7 @@ string cityTransformer(string city)
 
 
 
-double tooRadians(double degree) // funçao auxiliar para a funçao de cima
+double toRadians(double degree)
 {
     return degree * (M_PI / 180.0);
 }
@@ -166,10 +166,10 @@ double Distance(const double latitude,const double longitude, const double latit
 {
     constexpr double earthRadius = 6371.0;
 
-    double lat1 = tooRadians(latitude);
-    double lon1 = tooRadians(longitude);
-    double lat2 = tooRadians(latitude2);
-    double lon2 = tooRadians(longitude2);
+    double lat1 = toRadians(latitude);
+    double lon1 = toRadians(longitude);
+    double lat2 = toRadians(latitude2);
+    double lon2 = toRadians(longitude2);
 
     double dlat = lat2 - lat1;
     double dlon = lon2 - lon1;
@@ -180,7 +180,6 @@ double Distance(const double latitude,const double longitude, const double latit
 
     double c = 2 * std::atan2(std::sqrt(a), std::sqrt(1 - a));
 
-    // Distance in kilometers
     double distance = earthRadius * c;
 
     return distance;
@@ -208,7 +207,7 @@ bool compareTrips(const vector<Vertex<Airport>*>& trip1, const vector<Vertex<Air
 void FMSGraph::flightsPerCity(std::string city)             //iii.
 {
     /**
-     * @return Returns the number of diferent departures occur in a city ( it can have different airports)
+     * @return Returns the number of different departures occur in a city ( it can have different airports)
      *
      * @param city the name of the city we want to know how many fights has
      *
@@ -364,7 +363,7 @@ void FMSGraph::airportDestinations(std::string code) {      //v.
 void FMSGraph::reachableDestinationsInXStops(std::string code, int n) {          //vi.
 
     /**
-     * @return returns the differents airports, countries and cities a airport can get to with an n amout of stops
+     * @return returns the different airports, countries and cities a airport can get to with an n amount of stops
      *
      * @param code, numOfStops The unique code of each airport and the number of stops you want to do
      *
@@ -409,7 +408,7 @@ void FMSGraph::reachableDestinationsInXStops(std::string code, int n) {         
     std::cout << "- " << cityCount.size() << " different cities." << std::endl;
     std::cout << "- " << countryCount.size() << " different countries." << std::endl;
 }
-void FMSGraph::maxTrip() {      // INCORRECT
+void FMSGraph::maxTrip() {
     int maxStops = 0;
     vector<pair<Vertex<Airport>*,Vertex<Airport>*>> maxTripPairs;
     for(auto & v : getVertexSet()){
@@ -469,7 +468,7 @@ void FMSGraph::topAirports(int numOfAirports)           //viii.
 
     std::unordered_map<std::string, int> airportFlightsCount;
 
-    for (auto flight : getAirports()) // criar um unordered map de airports com contagem 0
+    for (auto flight : getAirports())
     {
         airportFlightsCount.insert(std::make_pair(flight->getInfo().getCode(),0));
     }
@@ -576,8 +575,8 @@ void FMSGraph::connectedComponentsDfsVisit(Vertex<Airport>* v, set<std::string> 
             connectedComponentsDfsVisit(w, airportCount);
     }
 }
-int FMSGraph::connectedComponents() {
-
+int FMSGraph::connectedComponents() {   // not really used by the program. we used it to check
+                                        // if some airports were isolated from the main network.
     /**
      * @return returns the size and the number of connected components in the graph
      *
@@ -689,7 +688,6 @@ set<vector<Vertex<Airport>*>> FMSGraph::findAllShortestPathsBetweenAirports(Vert
 
 struct PathComparator {
     bool operator()(const std::vector<Vertex<Airport>*>& path1, const std::vector<Vertex<Airport>*>& path2) const {
-        // Compare the paths based on some criteria, e.g., total distance
         double distance1 = calculateFullDistance(path1);
         double distance2 = calculateFullDistance(path2);
         return distance1 < distance2;
@@ -743,7 +741,7 @@ int FMSGraph::filterPerMinNumberOfAirlines(vector<vector<Flight>>& allPossibleFl
     return factor;
 }
 
-void FMSGraph::bestFlightOptionsWithFilter(Vertex<Airport>* source , Vertex<Airport>* destination) {    //PARTIALLY CORRECT
+void FMSGraph::bestFlightOptionsWithFilter(Vertex<Airport>* source , Vertex<Airport>* destination) {
     set<vector<Vertex<Airport> *>> possiblePaths;
     vector<vector<Flight>> allFlightsPath;
     vector<Airline> airlines;
@@ -790,7 +788,7 @@ void FMSGraph::bestFlightOptionsWithFilter(Vertex<Airport>* source , Vertex<Airp
             }
         }
 }
-void FMSGraph::bestFlightOptions(Vertex<Airport>* source , Vertex<Airport>* destination)    //PARTIALLY CORRECT
+void FMSGraph::bestFlightOptions(Vertex<Airport>* source , Vertex<Airport>* destination)
 {
     set<vector<Vertex<Airport>*>> possiblePaths = findAllShortestPathsBetweenAirports(source,destination);
     int count = 1;
@@ -872,7 +870,7 @@ Vertex<Airport>* FMSGraph::cityOption()
 
         Airport chosenAirport = cityAir[choice - 1];
 
-        return findVertex(chosenAirport); // returns  the airport u want
+        return findVertex(chosenAirport);
     }
 }
 

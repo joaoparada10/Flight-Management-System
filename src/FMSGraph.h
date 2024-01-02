@@ -1,7 +1,6 @@
 //
 // Created by jonas on 17/12/2023.
 //
-// Podemos dar extend do Graph.h e fazer as funções que precisamos para o projeto aqui (Airport = Vertex; Flight = Edge) OU implementar do 0 um custom graph
 
 /**
  * @file FMSGraph.h
@@ -16,10 +15,10 @@
 #include <unordered_map>
 #include <set>
 
-class FMSGraph : public Graph<Airport> { // entao este aqui e so uma adaptaçao do graph com nomes chiques
+class FMSGraph : public Graph<Airport> {
 
 private:
-    std::unordered_map<std::string, Airline> airlinesMap; // isto e para termos as nossas airlines todas guardadas num sitio caso seja necessario
+    std::unordered_map<std::string, Airline> airlinesMap;
 
 public:
     void addAirline(Airline& airline);

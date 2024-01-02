@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:/Users/jonas/Desktop/C++/AEDProject2/cmake-build-debug/
+cmake_ninja_workdir = /home/joao/AED23/AEDProject2/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target main
 
@@ -49,47 +49,61 @@ cmake_ninja_workdir = C$:/Users/jonas/Desktop/C++/AEDProject2/cmake-build-debug/
 
 build cmake_object_order_depends_target_main: phony || CMakeFiles/main.dir
 
-build CMakeFiles/main.dir/src/main.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/main.cpp || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\src\main.cpp.obj.d
+build CMakeFiles/main.dir/src/main.cpp.o: CXX_COMPILER__main_unscanned_Debug /home/joao/AED23/AEDProject2/src/main.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles/main.dir/src/main.cpp.o.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
+  OBJECT_DIR = CMakeFiles/main.dir
+  OBJECT_FILE_DIR = CMakeFiles/main.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/main.dir/
+  TARGET_PDB = main.pdb
 
-build CMakeFiles/main.dir/src/FileReader.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/FileReader.cpp || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\src\FileReader.cpp.obj.d
+build CMakeFiles/main.dir/src/FileReader.cpp.o: CXX_COMPILER__main_unscanned_Debug /home/joao/AED23/AEDProject2/src/FileReader.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles/main.dir/src/FileReader.cpp.o.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
+  OBJECT_DIR = CMakeFiles/main.dir
+  OBJECT_FILE_DIR = CMakeFiles/main.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/main.dir/
+  TARGET_PDB = main.pdb
 
-build CMakeFiles/main.dir/src/Airline.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/Airline.cpp || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\src\Airline.cpp.obj.d
+build CMakeFiles/main.dir/src/Airline.cpp.o: CXX_COMPILER__main_unscanned_Debug /home/joao/AED23/AEDProject2/src/Airline.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles/main.dir/src/Airline.cpp.o.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
+  OBJECT_DIR = CMakeFiles/main.dir
+  OBJECT_FILE_DIR = CMakeFiles/main.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/main.dir/
+  TARGET_PDB = main.pdb
 
-build CMakeFiles/main.dir/src/Airport.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/Airport.cpp || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\src\Airport.cpp.obj.d
+build CMakeFiles/main.dir/src/Airport.cpp.o: CXX_COMPILER__main_unscanned_Debug /home/joao/AED23/AEDProject2/src/Airport.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles/main.dir/src/Airport.cpp.o.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
+  OBJECT_DIR = CMakeFiles/main.dir
+  OBJECT_FILE_DIR = CMakeFiles/main.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/main.dir/
+  TARGET_PDB = main.pdb
 
-build CMakeFiles/main.dir/src/Flight.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/Flight.cpp || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\src\Flight.cpp.obj.d
+build CMakeFiles/main.dir/src/FMSGraph.cpp.o: CXX_COMPILER__main_unscanned_Debug /home/joao/AED23/AEDProject2/src/FMSGraph.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles/main.dir/src/FMSGraph.cpp.o.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
+  OBJECT_DIR = CMakeFiles/main.dir
+  OBJECT_FILE_DIR = CMakeFiles/main.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/main.dir/
+  TARGET_PDB = main.pdb
 
-build CMakeFiles/main.dir/src/FMSGraph.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/FMSGraph.cpp || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\src\FMSGraph.cpp.obj.d
+build CMakeFiles/main.dir/src/Menu.cpp.o: CXX_COMPILER__main_unscanned_Debug /home/joao/AED23/AEDProject2/src/Menu.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles/main.dir/src/Menu.cpp.o.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
+  OBJECT_DIR = CMakeFiles/main.dir
+  OBJECT_FILE_DIR = CMakeFiles/main.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/main.dir/
+  TARGET_PDB = main.pdb
 
-build CMakeFiles/main.dir/src/Menu.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/Menu.cpp || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\src\Menu.cpp.obj.d
+build CMakeFiles/main.dir/src/Flight.cpp.o: CXX_COMPILER__main_unscanned_Debug /home/joao/AED23/AEDProject2/src/Flight.cpp || cmake_object_order_depends_target_main
+  DEP_FILE = CMakeFiles/main.dir/src/Flight.cpp.o.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir\src
+  OBJECT_DIR = CMakeFiles/main.dir
+  OBJECT_FILE_DIR = CMakeFiles/main.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/main.dir/
+  TARGET_PDB = main.pdb
 
 
 # =============================================================================
@@ -97,24 +111,23 @@ build CMakeFiles/main.dir/src/Menu.cpp.obj: CXX_COMPILER__main_unscanned_Debug C
 
 
 #############################################
-# Link the executable main.exe
+# Link the executable main
 
-build main.exe: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/src/main.cpp.obj CMakeFiles/main.dir/src/FileReader.cpp.obj CMakeFiles/main.dir/src/Airline.cpp.obj CMakeFiles/main.dir/src/Airport.cpp.obj CMakeFiles/main.dir/src/Flight.cpp.obj CMakeFiles/main.dir/src/FMSGraph.cpp.obj CMakeFiles/main.dir/src/Menu.cpp.obj
+build main: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/src/main.cpp.o CMakeFiles/main.dir/src/FileReader.cpp.o CMakeFiles/main.dir/src/Airline.cpp.o CMakeFiles/main.dir/src/Airport.cpp.o CMakeFiles/main.dir/src/FMSGraph.cpp.o CMakeFiles/main.dir/src/Menu.cpp.o CMakeFiles/main.dir/src/Flight.cpp.o
   FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\main.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = main.exe
-  TARGET_IMPLIB = libmain.dll.a
-  TARGET_PDB = main.exe.dbg
+  OBJECT_DIR = CMakeFiles/main.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_COMPILE_PDB = CMakeFiles/main.dir/
+  TARGET_FILE = main
+  TARGET_PDB = main.pdb
 
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\jonas\Desktop\C++\AEDProject2\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cd /home/joao/AED23/AEDProject2/cmake-build-debug && /snap/clion/261/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -125,7 +138,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\jonas\Desktop\C++\AEDProject2\cmake-build-debug && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\jonas\Desktop\C++\AEDProject2 -BC:\Users\jonas\Desktop\C++\AEDProject2\cmake-build-debug"
+  COMMAND = cd /home/joao/AED23/AEDProject2/cmake-build-debug && /snap/clion/261/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/joao/AED23/AEDProject2 -B/home/joao/AED23/AEDProject2/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -134,7 +147,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# C:/Users/jonas/Desktop/C++/AEDProject2/CMakeLists.txt
+# /home/joao/AED23/AEDProject2/CMakeLists.txt
 # =============================================================================
 
 # =============================================================================
@@ -146,47 +159,61 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 build cmake_object_order_depends_target_AEDProject2: phony || src/CMakeFiles/AEDProject2.dir
 
-build src/CMakeFiles/AEDProject2.dir/Airline.cpp.obj: CXX_COMPILER__AEDProject2_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/Airline.cpp || cmake_object_order_depends_target_AEDProject2
-  DEP_FILE = src\CMakeFiles\AEDProject2.dir\Airline.cpp.obj.d
+build src/CMakeFiles/AEDProject2.dir/Airline.cpp.o: CXX_COMPILER__AEDProject2_unscanned_Debug /home/joao/AED23/AEDProject2/src/Airline.cpp || cmake_object_order_depends_target_AEDProject2
+  DEP_FILE = src/CMakeFiles/AEDProject2.dir/Airline.cpp.o.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = src\CMakeFiles\AEDProject2.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\AEDProject2.dir
+  OBJECT_DIR = src/CMakeFiles/AEDProject2.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/AEDProject2.dir
+  TARGET_COMPILE_PDB = src/CMakeFiles/AEDProject2.dir/
+  TARGET_PDB = src/AEDProject2.pdb
 
-build src/CMakeFiles/AEDProject2.dir/Airport.cpp.obj: CXX_COMPILER__AEDProject2_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/Airport.cpp || cmake_object_order_depends_target_AEDProject2
-  DEP_FILE = src\CMakeFiles\AEDProject2.dir\Airport.cpp.obj.d
+build src/CMakeFiles/AEDProject2.dir/Airport.cpp.o: CXX_COMPILER__AEDProject2_unscanned_Debug /home/joao/AED23/AEDProject2/src/Airport.cpp || cmake_object_order_depends_target_AEDProject2
+  DEP_FILE = src/CMakeFiles/AEDProject2.dir/Airport.cpp.o.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = src\CMakeFiles\AEDProject2.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\AEDProject2.dir
+  OBJECT_DIR = src/CMakeFiles/AEDProject2.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/AEDProject2.dir
+  TARGET_COMPILE_PDB = src/CMakeFiles/AEDProject2.dir/
+  TARGET_PDB = src/AEDProject2.pdb
 
-build src/CMakeFiles/AEDProject2.dir/FileReader.cpp.obj: CXX_COMPILER__AEDProject2_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/FileReader.cpp || cmake_object_order_depends_target_AEDProject2
-  DEP_FILE = src\CMakeFiles\AEDProject2.dir\FileReader.cpp.obj.d
+build src/CMakeFiles/AEDProject2.dir/FileReader.cpp.o: CXX_COMPILER__AEDProject2_unscanned_Debug /home/joao/AED23/AEDProject2/src/FileReader.cpp || cmake_object_order_depends_target_AEDProject2
+  DEP_FILE = src/CMakeFiles/AEDProject2.dir/FileReader.cpp.o.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = src\CMakeFiles\AEDProject2.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\AEDProject2.dir
+  OBJECT_DIR = src/CMakeFiles/AEDProject2.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/AEDProject2.dir
+  TARGET_COMPILE_PDB = src/CMakeFiles/AEDProject2.dir/
+  TARGET_PDB = src/AEDProject2.pdb
 
-build src/CMakeFiles/AEDProject2.dir/Flight.cpp.obj: CXX_COMPILER__AEDProject2_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/Flight.cpp || cmake_object_order_depends_target_AEDProject2
-  DEP_FILE = src\CMakeFiles\AEDProject2.dir\Flight.cpp.obj.d
+build src/CMakeFiles/AEDProject2.dir/FMSGraph.cpp.o: CXX_COMPILER__AEDProject2_unscanned_Debug /home/joao/AED23/AEDProject2/src/FMSGraph.cpp || cmake_object_order_depends_target_AEDProject2
+  DEP_FILE = src/CMakeFiles/AEDProject2.dir/FMSGraph.cpp.o.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = src\CMakeFiles\AEDProject2.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\AEDProject2.dir
+  OBJECT_DIR = src/CMakeFiles/AEDProject2.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/AEDProject2.dir
+  TARGET_COMPILE_PDB = src/CMakeFiles/AEDProject2.dir/
+  TARGET_PDB = src/AEDProject2.pdb
 
-build src/CMakeFiles/AEDProject2.dir/FMSGraph.cpp.obj: CXX_COMPILER__AEDProject2_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/FMSGraph.cpp || cmake_object_order_depends_target_AEDProject2
-  DEP_FILE = src\CMakeFiles\AEDProject2.dir\FMSGraph.cpp.obj.d
+build src/CMakeFiles/AEDProject2.dir/Flight.cpp.o: CXX_COMPILER__AEDProject2_unscanned_Debug /home/joao/AED23/AEDProject2/src/Flight.cpp || cmake_object_order_depends_target_AEDProject2
+  DEP_FILE = src/CMakeFiles/AEDProject2.dir/Flight.cpp.o.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = src\CMakeFiles\AEDProject2.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\AEDProject2.dir
+  OBJECT_DIR = src/CMakeFiles/AEDProject2.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/AEDProject2.dir
+  TARGET_COMPILE_PDB = src/CMakeFiles/AEDProject2.dir/
+  TARGET_PDB = src/AEDProject2.pdb
 
-build src/CMakeFiles/AEDProject2.dir/Menu.cpp.obj: CXX_COMPILER__AEDProject2_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/Menu.cpp || cmake_object_order_depends_target_AEDProject2
-  DEP_FILE = src\CMakeFiles\AEDProject2.dir\Menu.cpp.obj.d
+build src/CMakeFiles/AEDProject2.dir/Menu.cpp.o: CXX_COMPILER__AEDProject2_unscanned_Debug /home/joao/AED23/AEDProject2/src/Menu.cpp || cmake_object_order_depends_target_AEDProject2
+  DEP_FILE = src/CMakeFiles/AEDProject2.dir/Menu.cpp.o.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = src\CMakeFiles\AEDProject2.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\AEDProject2.dir
+  OBJECT_DIR = src/CMakeFiles/AEDProject2.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/AEDProject2.dir
+  TARGET_COMPILE_PDB = src/CMakeFiles/AEDProject2.dir/
+  TARGET_PDB = src/AEDProject2.pdb
 
-build src/CMakeFiles/AEDProject2.dir/main.cpp.obj: CXX_COMPILER__AEDProject2_unscanned_Debug C$:/Users/jonas/Desktop/C++/AEDProject2/src/main.cpp || cmake_object_order_depends_target_AEDProject2
-  DEP_FILE = src\CMakeFiles\AEDProject2.dir\main.cpp.obj.d
+build src/CMakeFiles/AEDProject2.dir/main.cpp.o: CXX_COMPILER__AEDProject2_unscanned_Debug /home/joao/AED23/AEDProject2/src/main.cpp || cmake_object_order_depends_target_AEDProject2
+  DEP_FILE = src/CMakeFiles/AEDProject2.dir/main.cpp.o.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = src\CMakeFiles\AEDProject2.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\AEDProject2.dir
+  OBJECT_DIR = src/CMakeFiles/AEDProject2.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/AEDProject2.dir
+  TARGET_COMPILE_PDB = src/CMakeFiles/AEDProject2.dir/
+  TARGET_PDB = src/AEDProject2.pdb
 
 
 # =============================================================================
@@ -194,24 +221,23 @@ build src/CMakeFiles/AEDProject2.dir/main.cpp.obj: CXX_COMPILER__AEDProject2_uns
 
 
 #############################################
-# Link the executable src\AEDProject2.exe
+# Link the executable src/AEDProject2
 
-build src/AEDProject2.exe: CXX_EXECUTABLE_LINKER__AEDProject2_Debug src/CMakeFiles/AEDProject2.dir/Airline.cpp.obj src/CMakeFiles/AEDProject2.dir/Airport.cpp.obj src/CMakeFiles/AEDProject2.dir/FileReader.cpp.obj src/CMakeFiles/AEDProject2.dir/Flight.cpp.obj src/CMakeFiles/AEDProject2.dir/FMSGraph.cpp.obj src/CMakeFiles/AEDProject2.dir/Menu.cpp.obj src/CMakeFiles/AEDProject2.dir/main.cpp.obj
+build src/AEDProject2: CXX_EXECUTABLE_LINKER__AEDProject2_Debug src/CMakeFiles/AEDProject2.dir/Airline.cpp.o src/CMakeFiles/AEDProject2.dir/Airport.cpp.o src/CMakeFiles/AEDProject2.dir/FileReader.cpp.o src/CMakeFiles/AEDProject2.dir/FMSGraph.cpp.o src/CMakeFiles/AEDProject2.dir/Flight.cpp.o src/CMakeFiles/AEDProject2.dir/Menu.cpp.o src/CMakeFiles/AEDProject2.dir/main.cpp.o
   FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = src\CMakeFiles\AEDProject2.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = src\AEDProject2.exe
-  TARGET_IMPLIB = src\libAEDProject2.dll.a
-  TARGET_PDB = AEDProject2.exe.dbg
+  OBJECT_DIR = src/CMakeFiles/AEDProject2.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_COMPILE_PDB = src/CMakeFiles/AEDProject2.dir/
+  TARGET_FILE = src/AEDProject2
+  TARGET_PDB = src/AEDProject2.pdb
 
 
 #############################################
 # Utility command for edit_cache
 
 build src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\jonas\Desktop\C++\AEDProject2\cmake-build-debug\src && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cd /home/joao/AED23/AEDProject2/cmake-build-debug/src && /snap/clion/261/bin/cmake/linux/x64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -222,7 +248,7 @@ build src/edit_cache: phony src/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\jonas\Desktop\C++\AEDProject2\cmake-build-debug\src && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\jonas\Desktop\C++\AEDProject2 -BC:\Users\jonas\Desktop\C++\AEDProject2\cmake-build-debug"
+  COMMAND = cd /home/joao/AED23/AEDProject2/cmake-build-debug/src && /snap/clion/261/bin/cmake/linux/x64/bin/cmake --regenerate-during-build -S/home/joao/AED23/AEDProject2 -B/home/joao/AED23/AEDProject2/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -232,11 +258,7 @@ build src/rebuild_cache: phony src/CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build AEDProject2: phony src/AEDProject2.exe
-
-build AEDProject2.exe: phony src/AEDProject2.exe
-
-build main: phony main.exe
+build AEDProject2: phony src/AEDProject2
 
 # =============================================================================
 # Folder targets.
@@ -244,16 +266,16 @@ build main: phony main.exe
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/jonas/Desktop/C++/AEDProject2/cmake-build-debug
+# Folder: /home/joao/AED23/AEDProject2/cmake-build-debug
 
-build all: phony main.exe src/all
+build all: phony main src/all
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/jonas/Desktop/C++/AEDProject2/cmake-build-debug/src
+# Folder: /home/joao/AED23/AEDProject2/cmake-build-debug/src
 
-build src/all: phony src/AEDProject2.exe
+build src/all: phony src/AEDProject2
 
 # =============================================================================
 # Built-in targets
@@ -262,14 +284,14 @@ build src/all: phony src/AEDProject2.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake C$:/Users/jonas/Desktop/C++/AEDProject2/CMakeLists.txt C$:/Users/jonas/Desktop/C++/AEDProject2/src/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeRCCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /home/joao/AED23/AEDProject2/CMakeLists.txt /home/joao/AED23/AEDProject2/src/CMakeLists.txt /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCCompiler.cmake.in /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCXXCompiler.cmake.in /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCXXCompilerABI.cpp /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCompilerIdDetection.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCXXCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCompileFeatures.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineSystem.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeFindBinUtils.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeParseImplicitIncludeInfo.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeParseLibraryArchitecture.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystem.cmake.in /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeTestCompilerCommon.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/ADSP-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/ARMCC-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/ARMClang-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/AppleClang-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Borland-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Clang-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Cray-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GHS-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-FindBinUtils.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/HP-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/IAR-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Intel-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/LCC-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/MSVC-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/NVHPC-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/PGI-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/PathScale-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/SCO-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/TI-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Tasking-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Watcom-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/XL-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/zOS-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Internal/FeatureTesting.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-Determine-CXX.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU-C.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-Initialize.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake C$:/Users/jonas/Desktop/C++/AEDProject2/CMakeLists.txt C$:/Users/jonas/Desktop/C++/AEDProject2/src/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeRCCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake: phony
+build /home/joao/AED23/AEDProject2/CMakeLists.txt /home/joao/AED23/AEDProject2/src/CMakeLists.txt /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCCompiler.cmake.in /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCCompilerABI.c /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCXXCompiler.cmake.in /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCXXCompilerABI.cpp /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeCompilerIdDetection.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCXXCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCompileFeatures.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeDetermineSystem.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeFindBinUtils.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeParseImplicitIncludeInfo.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeParseImplicitLinkInfo.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeParseLibraryArchitecture.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystem.cmake.in /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/CMakeTestCompilerCommon.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/ADSP-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/ARMCC-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/ARMClang-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/AppleClang-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Borland-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Clang-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Cray-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GHS-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU-FindBinUtils.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/HP-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/IAR-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Intel-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/LCC-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/MSVC-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/NVHPC-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/PGI-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/PathScale-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/SCO-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/TI-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Tasking-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/Watcom-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/XL-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/zOS-C-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Internal/FeatureTesting.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-Determine-CXX.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU-C.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-GNU.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux-Initialize.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/Linux.cmake /snap/clion/261/bin/cmake/linux/x64/share/cmake-3.27/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake: phony
 
 
 #############################################

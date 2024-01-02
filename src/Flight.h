@@ -2,6 +2,11 @@
 // Created by jonas on 29/12/2023.
 //
 
+/**
+ * @file Flight.h
+ * @brief Header file for the Flight class
+ */
+
 #ifndef AEDPROJECT2_FLIGHT_H
 #define AEDPROJECT2_FLIGHT_H
 #include <string>

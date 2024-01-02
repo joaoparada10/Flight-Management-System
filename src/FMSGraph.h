@@ -2,6 +2,12 @@
 // Created by jonas on 17/12/2023.
 //
 // Podemos dar extend do Graph.h e fazer as funções que precisamos para o projeto aqui (Airport = Vertex; Flight = Edge) OU implementar do 0 um custom graph
+
+/**
+ * @file FMSGraph.h
+ * @brief Header file for the FMSGraph class and an extention of graph.h
+ */
+
 #ifndef AEDPROJECT2_FMSGRAPH_H
 #define AEDPROJECT2_FMSGRAPH_H
 

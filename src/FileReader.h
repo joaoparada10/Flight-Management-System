@@ -2,6 +2,12 @@
 // Created by Asus on 25/12/2023.
 //
 
+/**
+ * @file Filereader.h
+ * @brief Header file for the Airline class which is respomsible
+ * for the input of information about the airports, airlines and its connections
+ */
+
 #ifndef AEDPROJ2_FILEREADER_H
 #define AEDPROJ2_FILEREADER_H
 
